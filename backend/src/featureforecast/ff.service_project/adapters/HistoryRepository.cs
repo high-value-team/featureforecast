@@ -6,7 +6,7 @@ using ff.service.data;
 
 namespace ff.service.adapters
 {
-    internal class HistoryRepository
+    public class HistoryRepository
     {
         private readonly string _path;
         private readonly JavaScriptSerializer _json;
@@ -37,9 +37,12 @@ namespace ff.service.adapters
         }
 
         
-        public string Map_name_to_id(string name)
-        {
-            return "123";
+        public string Map_name_to_id(string name) {
+            var filepaths = Directory.GetFiles(_path);
+            var filepath = filepaths.FirstOrDefault(fp => Filepath.Matches_name(fp, name));
+            if (filepath == null) throw new ApplicationException($"Invalid history name '{name}'!");
+
+            return Filepath.Extract_id(filepath);
         }
 
 
@@ -59,6 +62,18 @@ namespace ff.service.adapters
             public static bool Matches_id(string filepath, string id) {
                 var filename = Path.GetFileName(filepath);
                 return filename.StartsWith($"{id}--");
+            }
+
+            public static bool Matches_name(string filepath, string name) {
+                var filename = Path.GetFileNameWithoutExtension(filepath);
+                var delimiterIndex = filename.IndexOf("--");
+                return filename.Substring(delimiterIndex + 2).Equals(name, StringComparison.InvariantCultureIgnoreCase);
+            }
+
+            public static string Extract_id(string filepath) {
+                var filename = Path.GetFileName(filepath);
+                var delimiterIndex = filename.IndexOf("--");
+                return filename.Substring(0, delimiterIndex);
             }
         }
     }

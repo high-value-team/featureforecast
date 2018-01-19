@@ -120,5 +120,31 @@ namespace ff.tests
             loadedHistory = sut.Load_history_by_id(histId2);
             Assert.AreEqual("2@acme.com", loadedHistory.Email);
         }
+        
+        [Test]
+        public void Map_name_to_id()
+        {
+            var sut = new HistoryRepository(REPO_PATH);
+            
+            var history = new History {
+                Email = "peter@acme.com",
+                Name = "my history",
+                HistoricalData = new History.Datapoint[0],
+                LastUsed = new DateTime(2018,1,19, 17,30,53).ToUniversalTime()
+            };
+            var histId = sut.Store_history(history);
+
+            history.Id = "";
+            history.Name = "your history";
+            sut.Store_history(history);
+
+            history.Id = "";
+            history.Name = "her history";
+            sut.Store_history(history);
+            
+            var foundId = sut.Map_name_to_id("my history");
+            
+            Assert.AreEqual(histId, foundId);
+        }
     }
 }
