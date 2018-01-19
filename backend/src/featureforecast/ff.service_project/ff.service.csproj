@@ -41,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adapters\ChartingProvider.cs" />
     <Compile Include="adapters\HistoryRepository.cs" />
     <Compile Include="data\dto\DatapointDto.cs" />
     <Compile Include="data\dto\ForecastDto.cs" />
     <Compile Include="data\dto\ForecastRequestDto.cs" />
     <Compile Include="data\dto\HistoryDto.cs" />
     <Compile Include="data\dto\NewHistoryDto.cs" />
+    <Compile Include="data\Feature.cs" />
+    <Compile Include="data\Forecast.cs" />
     <Compile Include="data\History.cs" />
+    <Compile Include="Forecasting.cs" />
     <Compile Include="RequestHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

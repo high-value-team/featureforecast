@@ -16,6 +16,7 @@
       </e>
       <e p="ff.service_project" t="IncludeRecursive">
         <e p="adapters" t="Include">
+          <e p="ChartingProvider.cs" t="Include" />
           <e p="HistoryRepository.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
@@ -27,9 +28,12 @@
             <e p="HistoryDto.cs" t="Include" />
             <e p="NewHistoryDto.cs" t="Include" />
           </e>
+          <e p="Feature.cs" t="Include" />
+          <e p="Forecast.cs" t="Include" />
           <e p="History.cs" t="Include" />
         </e>
         <e p="ff.service.csproj" t="IncludeRecursive" />
+        <e p="Forecasting.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
