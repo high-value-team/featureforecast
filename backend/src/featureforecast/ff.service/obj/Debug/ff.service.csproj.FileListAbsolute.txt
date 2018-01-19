@@ -1,0 +1,6 @@
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.service/bin/Debug/ff.service.dll
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.service/bin/Debug/ff.service.pdb
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.service/obj/Debug/ff.service.csprojResolveAssemblyReference.cache
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.service/obj/Debug/ff.service.csproj.CoreCompileInputs.cache
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.service/obj/Debug/ff.service.dll
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.service/obj/Debug/ff.service.pdb

@@ -1,0 +1,10 @@
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/bin/Debug/ff.tests.dll
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/bin/Debug/ff.tests.pdb
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/bin/Debug/ff.service.dll
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/bin/Debug/nunit.framework.dll
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/bin/Debug/ff.service.pdb
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/bin/Debug/nunit.framework.xml
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/obj/Debug/ff.tests.csprojResolveAssemblyReference.cache
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/obj/Debug/ff.tests.csproj.CoreCompileInputs.cache
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/obj/Debug/ff.tests.dll
+/Users/ralfw/Projects/featureforecast.gitlab/backend/src/featureforecast/ff.tests/obj/Debug/ff.tests.pdb
