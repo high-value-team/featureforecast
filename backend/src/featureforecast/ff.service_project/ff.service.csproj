@@ -52,6 +52,7 @@
     <Compile Include="data\Forecast.cs" />
     <Compile Include="data\History.cs" />
     <Compile Include="Forecasting.cs" />
+    <Compile Include="HistoricalCsvDataParser.cs" />
     <Compile Include="RequestHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

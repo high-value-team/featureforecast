@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Web.Query.Dynamic;
 using ff.service.adapters;
 using ff.service.data;
 using ff.service.data.dto;
@@ -12,20 +13,26 @@ namespace ff.service
         
         private readonly HistoryRepository _repo;
         private readonly ChartingProvider _chart;
-        
-        public RequestHandler(HistoryRepository repo, ChartingProvider chart) {
+        private readonly Forecasting _forecasting;
+
+        public RequestHandler(HistoryRepository repo, ChartingProvider chart, Forecasting forecasting) {
             _repo = repo;
             _chart = chart;
+            _forecasting = forecasting;
         }
         
         
         public string Create_history(NewHistoryDto newhistory)
         {
+            var parsedData = HistoricalCsvDataParser.Parse(newhistory.HistoricalDataToParse);
+            
             var history = new History {
                 Id = newhistory.Id,
                 Email = newhistory.Email,
                 Name = newhistory.Name,
-                HistoricalData = newhistory.HistoricalData.Select(d => new History.Datapoint{Value=d.Value, Tags=d.Tags}).ToArray(),
+                HistoricalData = newhistory.HistoricalData.Select(d => new History.Datapoint{Value=d.Value, Tags=d.Tags})
+                                           .Concat(parsedData)
+                                           .ToArray(),
                 LastUsed = DateTime.Now.ToUniversalTime()
             };
             return _repo.Store_history(history);
@@ -57,14 +64,15 @@ namespace ff.service
         
         public ForecastDto Calculate_forecast(ForecastRequestDto request) {
             var history = _repo.Load_history_by_id(request.Id);
-            var forecast = Forecasting.Calculate(history.HistoricalData, Map_features(request.Features));
-            var imageFilepath = _chart.Draw_distribution(history.Id, forecast);
             Update_lastused(history);
+            
+            var forecast = _forecasting.Calculate(history.HistoricalData, Map_features(request.Features));
+            var imageFilepath = _chart.Draw_distribution(history.Id, forecast);
 
             return new ForecastDto {
                 Id = history.Id,
                 Distribution = forecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto{Value = d.Value, Probability = d.Probability}).ToArray(),
-                DistributionImageUrl = imageFilepath
+                DistributionImageUrl = imageFilepath // Server muss in URL wandeln
             };
 
             Feature[] Map_features(ForecastRequestDto.FeatureDto[] features)

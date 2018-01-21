@@ -12,6 +12,7 @@ namespace ff.service
         // returns image file path
         public string Draw_distribution(string historyId, Forecast forecast)
         {
+            // TODO: Chart malen
             throw new NotImplementedException();
         }
     }

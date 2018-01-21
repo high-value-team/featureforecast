@@ -34,6 +34,7 @@
         </e>
         <e p="ff.service.csproj" t="IncludeRecursive" />
         <e p="Forecasting.cs" t="Include" />
+        <e p="HistoricalCsvDataParser.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
@@ -44,10 +45,15 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ff.tests.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="test_ChartingProvider.cs" t="Include" />
+        <e p="test_Forecasting.cs" t="Include" />
+        <e p="test_HistoricalCsvDataParser.cs" t="Include" />
         <e p="test_HistoryRepository.cs" t="Include" />
+        <e p="test_RequestHandler.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="tests" t="Include" />

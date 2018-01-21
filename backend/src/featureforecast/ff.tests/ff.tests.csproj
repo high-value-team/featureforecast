@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="equalidator, Version=1.0.15.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\equalidator.1.0.15.0\lib\net40\equalidator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -42,14 +45,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="test_ChartingProvider.cs" />
+    <Compile Include="test_Forecasting.cs" />
+    <Compile Include="test_HistoricalCsvDataParser.cs" />
     <Compile Include="test_HistoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test_RequestHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ff.service_project\ff.service.csproj">
       <Project>{72dc700d-5593-4c1d-8370-254a06f1146c}</Project>
       <Name>ff.service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
