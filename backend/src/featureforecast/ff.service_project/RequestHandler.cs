@@ -12,12 +12,10 @@ namespace ff.service
         private const int EXPIRATION_PERIOD_DAYS = 7;
         
         private readonly HistoryRepository _repo;
-        private readonly ChartingProvider _chart;
         private readonly Forecasting _forecasting;
 
-        public RequestHandler(HistoryRepository repo, ChartingProvider chart, Forecasting forecasting) {
+        public RequestHandler(HistoryRepository repo, Forecasting forecasting) {
             _repo = repo;
-            _chart = chart;
             _forecasting = forecasting;
         }
         
@@ -67,12 +65,14 @@ namespace ff.service
             Update_lastused(history);
             
             var forecast = _forecasting.Calculate(history.HistoricalData, Map_features(request.Features));
-            var imageFilepath = _chart.Draw_distribution(history.Id, forecast);
 
             return new ForecastDto {
                 Id = history.Id,
-                Distribution = forecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto{Value = d.Value, Probability = d.Probability}).ToArray(),
-                DistributionImageUrl = imageFilepath // Server muss in URL wandeln
+                Distribution = forecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto {
+                                                                            Prognosis = d.Prognosis, 
+                                                                            CummulatedPrognosis = d.CummulatedPrognosis,
+                                                                            Probability = d.Probability
+                                                                        }).ToArray(),
             };
 
             Feature[] Map_features(ForecastRequestDto.FeatureDto[] features)

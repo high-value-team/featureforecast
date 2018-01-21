@@ -4,7 +4,8 @@
         public PossibleOutcome[] Distribution;
         
         public class PossibleOutcome {
-            public float Value;
+            public float Prognosis;
+            public float CummulatedPrognosis;
             public float Probability;
         }
     }

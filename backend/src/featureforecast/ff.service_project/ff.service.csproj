@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adapters\ChartingProvider.cs" />
     <Compile Include="adapters\HistoryRepository.cs" />
     <Compile Include="data\dto\DatapointDto.cs" />
     <Compile Include="data\dto\ForecastDto.cs" />

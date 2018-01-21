@@ -44,7 +44,7 @@ namespace ff.tests
         [Test]
         public void Deal_with_missing_tags()
         {
-            var result = HistoricalCsvDataParser.Parse("1;a\n2;b,\n3;,c\n4");
+            var result = HistoricalCsvDataParser.Parse("1;a\n2;b,\n3;,c\n4;");
             Equalidator.AreEqual(new[] {
                     new History.Datapoint{Value=1f,Tags=new[]{"a"}},
                     new History.Datapoint{Value=2f,Tags=new[]{"b"}},

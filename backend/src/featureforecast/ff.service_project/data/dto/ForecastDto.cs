@@ -4,10 +4,10 @@
     {
         public string Id;
         public PossibleOutcomeDto[] Distribution;
-        public string DistributionImageUrl;
         
         public class PossibleOutcomeDto {
-            public float Value;
+            public float Prognosis;
+            public float CummulatedPrognosis;
             public float Probability;
         }
     }

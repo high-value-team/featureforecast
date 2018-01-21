@@ -6,11 +6,15 @@ using ff.service.data;
 
 namespace ff.service
 {
-    /* TODO: CSV Parsing
-     * Das steht in einer Excel-Datei, wenn man sie nach CSV exportiert:
-     * 2,4;tag1,tag2
-     * 5,2;tag2
-     * 2,2;tag3,tag1
+    /* Expected format for historical CSV data (exported from Excel):
+     *     2,4;tag1,tag2
+     *     5,2;tag2
+     *     2,2;
+     *
+     * First column is the value, second column are the tags separated by ",".
+     * Columns separated by ";".
+     * 
+     * Value can be written 3,14 or 3.14.
      */
     public static class HistoricalCsvDataParser
     {
@@ -22,17 +26,17 @@ namespace ff.service
             return Map_to_datapoints(records);
         }
 
-        internal static string[] Split_into_lines(string text)
+        private static string[] Split_into_lines(string text)
             => text.Split(new[] {'\n', '\r'}, StringSplitOptions.RemoveEmptyEntries)
                    .Where(l => !string.IsNullOrWhiteSpace(l))
                    .ToArray();
 
-        internal static string[][] Split_columns(IEnumerable<string> csvlines)
+        private static string[][] Split_columns(IEnumerable<string> csvlines)
             => csvlines.Select(l => l.Split(new[] {';'}))
                        .Select(r => new[]{r[0].Trim(), r.Length>1 ? r[1].Trim() : ""})
                        .ToArray();
 
-        internal static History.Datapoint[] Map_to_datapoints(string[][] records)
+        private static History.Datapoint[] Map_to_datapoints(string[][] records)
         {
             return records.Select(Map_to_datapoint).ToArray();
 

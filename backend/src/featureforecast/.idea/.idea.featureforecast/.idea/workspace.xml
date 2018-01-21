@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e5d8149-3968-48b3-a3c2-210cfd539eb5" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.featureforecast/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.featureforecast/.idea/contentModel.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.featureforecast/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.featureforecast/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs" afterPath="$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs" />
+      <change beforePath="$PROJECT_DIR$/ff.service_project/RequestHandler.cs" afterPath="$PROJECT_DIR$/ff.service_project/RequestHandler.cs" />
+      <change beforePath="$PROJECT_DIR$/ff.service_project/adapters/ChartingProvider.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ff.service_project/data/Forecast.cs" afterPath="$PROJECT_DIR$/ff.service_project/data/Forecast.cs" />
+      <change beforePath="$PROJECT_DIR$/ff.service_project/data/dto/ForecastDto.cs" afterPath="$PROJECT_DIR$/ff.service_project/data/dto/ForecastDto.cs" />
+      <change beforePath="$PROJECT_DIR$/ff.service_project/ff.service.csproj" afterPath="$PROJECT_DIR$/ff.service_project/ff.service.csproj" />
+      <change beforePath="$PROJECT_DIR$/ff.tests/ff.tests.csproj" afterPath="$PROJECT_DIR$/ff.tests/ff.tests.csproj" />
+      <change beforePath="$PROJECT_DIR$/ff.tests/test_ChartingProvider.cs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ff.tests/test_Forecasting.cs" afterPath="$PROJECT_DIR$/ff.tests/test_Forecasting.cs" />
       <change beforePath="$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs" afterPath="$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs" />
+      <change beforePath="$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" afterPath="$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,48 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_HistoricalCsvDataParser.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding>
-                <marker date="1516533472000" expanded="true" signature="6:82" ph="..." />
-                <marker date="1516533472000" expanded="true" signature="102:1886" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="168:1884" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="221:545" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="345:509" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="620:868" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="738:832" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="935:1348" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="1078:1312" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="1417:1878" ph="{...}" />
-                <marker date="1516533472000" expanded="true" signature="1545:1842" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HistoricalCsvDataParser.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
-              <folding>
-                <marker date="1516532418000" expanded="false" signature="6:117" ph="..." />
-                <marker date="1516532418000" expanded="true" signature="139:1895" ph="{...}" />
-                <marker date="1516532418000" expanded="true" signature="146:305" ph="/* TODO: CSV Parsing ... */" />
-                <marker date="1516532418000" expanded="true" signature="353:1893" ph="{...}" />
-                <marker date="1516532418000" expanded="true" signature="434:703" ph="{...}" />
-                <marker date="1516532418000" expanded="true" signature="1288:1887" ph="{...}" />
-                <marker date="1516532418000" expanded="true" signature="1776:1862" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -61,11 +32,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ff.tests/test_HistoryRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ff.tests/test_ChartingProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.tests/test_Forecasting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ff.service_project/adapters/ChartingProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.service_project/Forecasting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.service_project/data/Feature.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ff.service_project/data/Forecast.cs" root0="FORCE_HIGHLIGHTING" />
@@ -96,16 +65,17 @@
         <option value="$PROJECT_DIR$/ff.service_project/Forecast.cs" />
         <option value="$PROJECT_DIR$/ff.service_project/Feature.cs" />
         <option value="$PROJECT_DIR$/ff.service_project/Charting.cs" />
-        <option value="$PROJECT_DIR$/ff.service_project/data/dto/ForecastDto.cs" />
+        <option value="$PROJECT_DIR$/ff.server/Program.cs" />
+        <option value="$PROJECT_DIR$/ff.service_project/adapters/ChartingProvider.cs" />
+        <option value="$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs" />
+        <option value="$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs" />
+        <option value="$PROJECT_DIR$/ff.service_project/Forecasting.cs" />
+        <option value="$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" />
         <option value="$PROJECT_DIR$/ff.tests/test_Forecasting.cs" />
         <option value="$PROJECT_DIR$/ff.tests/test_ChartingProvider.cs" />
-        <option value="$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" />
+        <option value="$PROJECT_DIR$/ff.service_project/data/dto/ForecastDto.cs" />
+        <option value="$PROJECT_DIR$/ff.service_project/data/Forecast.cs" />
         <option value="$PROJECT_DIR$/ff.service_project/RequestHandler.cs" />
-        <option value="$PROJECT_DIR$/ff.server/Program.cs" />
-        <option value="$PROJECT_DIR$/ff.service_project/Forecasting.cs" />
-        <option value="$PROJECT_DIR$/ff.service_project/adapters/ChartingProvider.cs" />
-        <option value="$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs" />
-        <option value="$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs" />
       </list>
     </option>
   </component>
@@ -153,6 +123,29 @@
               <item name="featureforecast (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="tests" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="ff.tests" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="featureforecast (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="ff.service" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="featureforecast (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="ff.service" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="References" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="featureforecast (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="ff.service" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="adapters" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="featureforecast (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="ff.service" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="data" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -210,40 +203,41 @@
       <updated>1516376509162</updated>
       <workItem from="1516376512914" duration="5566000" />
       <workItem from="1516382205435" duration="9320000" />
-      <workItem from="1516530114125" duration="3361000" />
+      <workItem from="1516530114125" duration="6010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18247000" />
+    <option name="totallyTimeSpent" value="20896000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
     <todo-panel id="all">
       <are-packages-shown value="true" />
+      <are-modules-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="841" extended-state="6" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26970956" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26970956" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32918397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39419088" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2614108" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32918397" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50899035" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23651452" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -272,6 +266,7 @@
           <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding>
             <marker date="1516394120000" expanded="false" signature="6:36" ph="..." />
+            <marker date="1516394120000" expanded="true" signature="58:1340" ph="{...}" />
             <marker date="1516394120000" expanded="true" signature="89:1338" ph="{...}" />
             <marker date="1516394120000" expanded="true" signature="172:259" ph="{...}" />
             <marker date="1516394120000" expanded="true" signature="431:1332" ph="{...}" />
@@ -284,10 +279,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <marker date="1516394120000" expanded="true" signature="71:426" ph="{...}" />
-            <marker date="1516394120000" expanded="true" signature="318:420" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -296,17 +288,19 @@
         <state relative-caret-position="1072">
           <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding>
-            <marker date="1516392953000" expanded="false" signature="6:141" ph="..." />
-            <marker date="1516392953000" expanded="true" signature="197:3289" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="522:627" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="708:1355" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="864:1295" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="1422:1869" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="1514:1858" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="1949:2021" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="2092:2203" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="2288:3283" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="2628:2917" ph="{...}" />
+            <marker date="1516537493000" expanded="false" signature="6:141" ph="..." />
+            <marker date="1516537493000" expanded="true" signature="163:3383" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="197:3381" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="448:525" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="606:1253" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="762:1193" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1320:1767" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1412:1756" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1847:1919" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1990:2101" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="2186:3375" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="2446:3009" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="2581:2983" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -327,17 +321,17 @@
         <state relative-caret-position="112">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
-            <marker date="1516533472000" expanded="true" signature="6:82" ph="..." />
-            <marker date="1516533472000" expanded="true" signature="102:1886" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="168:1884" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="221:545" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="345:509" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="620:868" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="738:832" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="935:1348" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="1078:1312" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="1417:1878" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="1545:1842" ph="{...}" />
+            <marker date="1516533891000" expanded="false" signature="6:82" ph="..." />
+            <marker date="1516533891000" expanded="true" signature="102:1887" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="168:1885" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="221:545" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="345:509" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="620:868" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="738:832" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="935:1348" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="1078:1312" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="1417:1879" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="1546:1843" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -347,7 +341,8 @@
         <state relative-caret-position="112">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
-            <marker date="1516391039000" expanded="true" signature="96:117" ph="{...}" />
+            <marker date="1516534168000" expanded="true" signature="42:144" ph="{...}" />
+            <marker date="1516534168000" expanded="true" signature="96:142" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -356,9 +351,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <marker date="1516391052000" expanded="true" signature="101:122" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -367,7 +360,8 @@
         <state relative-caret-position="112">
           <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
-            <marker date="1516391073000" expanded="true" signature="99:120" ph="{...}" />
+            <marker date="1516534168000" expanded="true" signature="42:151" ph="{...}" />
+            <marker date="1516534168000" expanded="true" signature="99:149" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -377,13 +371,13 @@
         <state relative-caret-position="320">
           <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
-            <marker date="1516532418000" expanded="false" signature="6:117" ph="..." />
-            <marker date="1516532418000" expanded="true" signature="139:1895" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="146:305" ph="/* TODO: CSV Parsing ... */" />
-            <marker date="1516532418000" expanded="true" signature="353:1893" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="434:703" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="1288:1887" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="1776:1862" ph="{...}" />
+            <marker date="1516534029000" expanded="false" signature="6:117" ph="..." />
+            <marker date="1516534029000" expanded="true" signature="139:2036" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="146:449" ph="/* Expected format for historical CSV data (exported from Excel): ... */" />
+            <marker date="1516534029000" expanded="true" signature="497:2034" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="578:847" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="1429:2028" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="1917:2003" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -404,13 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ff.tests/test_HistoryRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ff.service_project/data/Feature.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -418,99 +405,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ff.service_project/data/Forecast.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.service_project/data/dto/ForecastDto.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ff.service_project/adapters/HistoryRepository.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.tests/test_Forecasting.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <marker date="1516391039000" expanded="true" signature="96:117" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.tests/test_ChartingProvider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <marker date="1516391052000" expanded="true" signature="101:122" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.tests/test_RequestHandler.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <marker date="1516391073000" expanded="true" signature="99:120" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.service_project/RequestHandler.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
-          <folding>
-            <marker date="1516392953000" expanded="false" signature="6:141" ph="..." />
-            <marker date="1516392953000" expanded="true" signature="197:3289" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="522:627" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="708:1355" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="864:1295" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="1422:1869" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="1514:1858" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="1949:2021" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="2092:2203" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="2288:3283" ph="{...}" />
-            <marker date="1516392953000" expanded="true" signature="2628:2917" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.service_project/Forecasting.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-          <folding>
-            <marker date="1516394120000" expanded="false" signature="6:36" ph="..." />
-            <marker date="1516394120000" expanded="true" signature="89:1338" ph="{...}" />
-            <marker date="1516394120000" expanded="true" signature="172:259" ph="{...}" />
-            <marker date="1516394120000" expanded="true" signature="431:1332" ph="{...}" />
-            <marker date="1516394120000" expanded="true" signature="454:1273" ph="/* TODO: Forecasting ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ff.service_project/adapters/ChartingProvider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <marker date="1516394120000" expanded="true" signature="71:426" ph="{...}" />
-            <marker date="1516394120000" expanded="true" signature="318:420" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -527,39 +425,179 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ff.service_project/HistoricalCsvDataParser.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="39" column="61" lean-forward="false" selection-start-line="39" selection-start-column="61" selection-end-line="39" selection-end-column="61" />
+        <state relative-caret-position="160">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           <folding>
-            <marker date="1516532418000" expanded="false" signature="6:117" ph="..." />
-            <marker date="1516532418000" expanded="true" signature="139:1895" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="146:305" ph="/* TODO: CSV Parsing ... */" />
-            <marker date="1516532418000" expanded="true" signature="353:1893" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="434:703" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="1288:1887" ph="{...}" />
-            <marker date="1516532418000" expanded="true" signature="1776:1862" ph="{...}" />
+            <marker date="1516534029000" expanded="false" signature="6:117" ph="..." />
+            <marker date="1516534029000" expanded="true" signature="139:2036" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="146:449" ph="/* Expected format for historical CSV data (exported from Excel): ... */" />
+            <marker date="1516534029000" expanded="true" signature="497:2034" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="578:847" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="1429:2028" ph="{...}" />
+            <marker date="1516534029000" expanded="true" signature="1917:2003" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ff.tests/test_HistoricalCsvDataParser.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="688">
+          <caret line="46" column="75" lean-forward="false" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
           <folding>
-            <marker date="1516533472000" expanded="true" signature="6:82" ph="..." />
-            <marker date="1516533472000" expanded="true" signature="102:1886" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="168:1884" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="221:545" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="345:509" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="620:868" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="738:832" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="935:1348" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="1078:1312" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="1417:1878" ph="{...}" />
-            <marker date="1516533472000" expanded="true" signature="1545:1842" ph="{...}" />
+            <marker date="1516533891000" expanded="false" signature="6:82" ph="..." />
+            <marker date="1516533891000" expanded="true" signature="102:1887" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="168:1885" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="221:545" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="345:509" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="620:868" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="738:832" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="935:1348" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="1078:1312" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="1417:1879" ph="{...}" />
+            <marker date="1516533891000" expanded="true" signature="1546:1843" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ff.tests/test_RequestHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding>
+            <marker date="1516534168000" expanded="true" signature="42:151" ph="{...}" />
+            <marker date="1516534168000" expanded="true" signature="99:149" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.tests/test_HistoryRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <marker date="1516381670000" expanded="true" signature="6:148" ph="..." />
+            <marker date="1516381670000" expanded="true" signature="168:5301" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="228:5299" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="345:580" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="653:1786" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="702:1091" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="822:997" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="1858:2497" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="1907:2327" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="2058:2233" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="2562:3472" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="2611:3000" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="2731:2906" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="3553:4461" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="3662:3890" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="4522:5293" ph="{...}" />
+            <marker date="1516381670000" expanded="true" signature="4640:4872" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.service_project/adapters/ChartingProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.tests/test_ChartingProvider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.service_project/data/dto/ForecastDto.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1516537493000" expanded="true" signature="29:331" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="60:329" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="192:323" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.service_project/data/Forecast.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding>
+            <marker date="1516537493000" expanded="true" signature="20:283" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="49:281" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="144:275" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.service_project/RequestHandler.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1177">
+          <caret line="80" column="32" lean-forward="false" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+          <folding>
+            <marker date="1516537493000" expanded="false" signature="6:141" ph="..." />
+            <marker date="1516537493000" expanded="true" signature="163:3383" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="197:3381" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="448:525" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="606:1253" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="762:1193" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1320:1767" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1412:1756" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1847:1919" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="1990:2101" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="2186:3375" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="2446:3009" ph="{...}" />
+            <marker date="1516537493000" expanded="true" signature="2581:2983" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.tests/test_Forecasting.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <marker date="1516534168000" expanded="true" signature="42:144" ph="{...}" />
+            <marker date="1516534168000" expanded="true" signature="96:142" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ff.service_project/Forecasting.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding>
+            <marker date="1516394120000" expanded="false" signature="6:36" ph="..." />
+            <marker date="1516394120000" expanded="true" signature="58:1340" ph="{...}" />
+            <marker date="1516394120000" expanded="true" signature="89:1338" ph="{...}" />
+            <marker date="1516394120000" expanded="true" signature="172:259" ph="{...}" />
+            <marker date="1516394120000" expanded="true" signature="431:1332" ph="{...}" />
+            <marker date="1516394120000" expanded="true" signature="454:1273" ph="/* TODO: Forecasting ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
