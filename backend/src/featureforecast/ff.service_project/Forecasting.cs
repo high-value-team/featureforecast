@@ -18,8 +18,8 @@ namespace ff.service
         {
             // TODO: Forecasting
             // vorbereitung:
-            //     multiply features
-            //     zu jedem feature die grunddatenmenge heraussuchen
+            //     multiply features // kann klasse Feature{} übernehmen
+            //     zu jedem feature die grunddatenmenge heraussuchen // kann klasse History{} übernehmen
             // monte carlo: 1000x
             //    aus jeder grunddatenmenge einen zufälligen wert entnehmen
             //    simulation aktualisieren (werte addieren)

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ff.service.data
 {
@@ -12,6 +14,26 @@ namespace ff.service.data
         public class Datapoint {
             public float Value;
             public string[] Tags;
+        }
+    }
+    
+    
+    internal static class DatapointExtensions
+    {
+        public static IEnumerable<History.Datapoint> Query_by_tags(this IEnumerable<History.Datapoint> datapoints, 
+                                                                   string[] tagsRequired)
+        {
+            return tagsRequired.Length == 0 ? datapoints.Where(No_tags) 
+                                            : datapoints.Where(Required_tags_are_matching);
+
+            bool No_tags(History.Datapoint dp)
+                => dp.Tags.Length == 0;
+            
+            bool Required_tags_are_matching(History.Datapoint dp)
+                => tagsRequired.All(t => Match_any_tag(dp.Tags, t));
+
+            bool Match_any_tag(string[] datapointTags, string requiredTag)
+                => datapointTags.Any(dpt => string.Compare(requiredTag, dpt, StringComparison.CurrentCultureIgnoreCase) == 0);
         }
     }
 }
