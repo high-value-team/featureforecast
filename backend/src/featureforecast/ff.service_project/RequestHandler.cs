@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Query.Dynamic;
 using ff.service.adapters;
+using ff.service.core;
 using ff.service.data;
 using ff.service.data.dto;
 

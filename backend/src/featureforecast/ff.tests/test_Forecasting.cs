@@ -1,22 +1,35 @@
-﻿using System;
-using ff.service;
+﻿using System.Globalization;
+using System.Linq;
+using ff.service.core;
 using NUnit.Framework;
 
 namespace ff.tests
 {
     [TestFixture]
-    public class test_Forecasting {
+    public class test_Forecasting
+    {
         [Test]
-        public void Build_random_number_generator()
+        public void Calc_intervals()
         {
-            var sut = Forecasting.Build_random_number_generator();
+            var simulationResults = new[] { 4f,6f,7f,8f,9f,10f,11f,20f,30f,40f,50f,70f,100f };
 
-            const int MAX = 10;
-            for (var i = 0; i < 100; i++) {
-                var r = sut(MAX);
-                Assert.IsTrue(r <= (MAX-1));
-                
-                Console.WriteLine(r);
+            (float min, float max)[] result = Forecasting.Calculate_intervals(5, simulationResults).ToArray();
+            
+            Assert.AreEqual(5, result.Length);
+            var expected = new[] {
+                (4f, 23.2f),
+                (23.2f, 42.4f),
+                (42.4f, 61.6f),
+                (61.6f, 80.8f),
+                (80.8f, 100f)
+            };
+            for (var i = 0; i < expected.Length; i++)
+                AreEqual(expected[i], result[i]);
+
+
+            void AreEqual((float min, float max) e, (float min, float max) r) {
+                Assert.AreEqual(e.min, r.min, 0.01f);
+                Assert.AreEqual(e.max, r.max, 0.01f);
             }
         }
     }
