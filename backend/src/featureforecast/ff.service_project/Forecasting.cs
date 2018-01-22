@@ -1,25 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ff.service.data;
 
 namespace ff.service
 {
-    public class Forecasting
+    public static class Forecasting
     {
-        private readonly Func<int, int> _rnd;
-
-        public Forecasting() {
-            var rnd = new Random();
-            _rnd = n => rnd.Next(0, n);
-        }
-        internal Forecasting(Func<int,int> rnd) { _rnd = rnd; }
-        
-        
-        public Forecast Calculate(History.Datapoint[] historicalData, Feature[] features)
+        public static Forecast Calculate(History.Datapoint[] historicalData, Feature[] features)
         {
+            var flattenedFeatureTags = features.Flatten();
+            var featureDatapoints = Select_datapoints_for_features(flattenedFeatureTags, historicalData);
+            
+
+
+            
             // TODO: Forecasting
-            // vorbereitung:
-            //     multiply features // kann klasse Feature{} übernehmen
-            //     zu jedem feature die grunddatenmenge heraussuchen // kann klasse History{} übernehmen
             // monte carlo: 1000x
             //    aus jeder grunddatenmenge einen zufälligen wert entnehmen
             //    simulation aktualisieren (werte addieren)
@@ -30,6 +26,29 @@ namespace ff.service
             //    intervallwahrscheinlichkeiten berechnen = n werte im intervall / gesamtanzahl der werte.
             //    intervalle auf forecast mappen
             throw new NotImplementedException();
+        }
+
+        
+        private static IEnumerable<History.Datapoint[]> Select_datapoints_for_features(IEnumerable<string[]> featureTags, 
+                                                                                History.Datapoint[] historicalData)
+            => featureTags.Select(ft => historicalData.Query_by_tags(ft).ToArray());
+
+        
+        internal static IEnumerable<float> Run_simulations(int n, Func<int,int> rnd, History.Datapoint[][] featureDatapoints) {
+            while (n-- > 0) {
+                yield return featureDatapoints.Select(Sample_datapoint).Aggregate(0f, (value, prognosis) => prognosis + value);
+            }
+
+            float Sample_datapoint(History.Datapoint[] datapoints) {
+                var i = rnd(datapoints.Length);
+                return datapoints[i].Value;
+            }
+        }
+
+
+        internal static Func<int, int> Build_random_number_generator() {
+            var rnd = new Random();
+            return n => rnd.Next(0, n);
         }
     }
 }

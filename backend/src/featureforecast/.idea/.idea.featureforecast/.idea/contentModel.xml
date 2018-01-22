@@ -49,6 +49,7 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="test_Feature.cs" t="Include" />
+        <e p="test_Forecasting.cs" t="Include" />
         <e p="test_HistoricalCsvDataParser.cs" t="Include" />
         <e p="test_History.cs" t="Include" />
         <e p="test_HistoryRepository.cs" t="Include" />

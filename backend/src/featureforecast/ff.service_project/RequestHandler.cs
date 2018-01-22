@@ -12,11 +12,9 @@ namespace ff.service
         private const int EXPIRATION_PERIOD_DAYS = 7;
         
         private readonly HistoryRepository _repo;
-        private readonly Forecasting _forecasting;
 
-        public RequestHandler(HistoryRepository repo, Forecasting forecasting) {
+        public RequestHandler(HistoryRepository repo) {
             _repo = repo;
-            _forecasting = forecasting;
         }
         
         
@@ -64,7 +62,7 @@ namespace ff.service
             var history = _repo.Load_history_by_id(request.Id);
             Update_lastused(history);
             
-            var forecast = _forecasting.Calculate(history.HistoricalData, Map_features(request.Features));
+            var forecast = Forecasting.Calculate(history.HistoricalData, Map_features(request.Features));
 
             return new ForecastDto {
                 Id = history.Id,

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="test_Feature.cs" />
+    <Compile Include="test_Forecasting.cs" />
     <Compile Include="test_HistoricalCsvDataParser.cs" />
     <Compile Include="test_History.cs" />
     <Compile Include="test_HistoryRepository.cs" />
