@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="adapters\HistoryRepository.cs" />
     <Compile Include="core\Forecasting.cs" />
+    <Compile Include="core\Histogram.cs" />
     <Compile Include="core\MonteCarloSimulation.cs" />
     <Compile Include="data\dto\DatapointDto.cs" />
     <Compile Include="data\dto\ForecastDto.cs" />

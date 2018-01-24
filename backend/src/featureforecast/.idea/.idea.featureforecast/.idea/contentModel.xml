@@ -21,6 +21,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="core" t="Include">
           <e p="Forecasting.cs" t="Include" />
+          <e p="Histogram.cs" t="Include" />
           <e p="MonteCarloSimulation.cs" t="Include" />
         </e>
         <e p="data" t="Include">
@@ -53,6 +54,7 @@
         </e>
         <e p="test_Feature.cs" t="Include" />
         <e p="test_Forecasting.cs" t="Include" />
+        <e p="test_Historgram.cs" t="Include" />
         <e p="test_HistoricalCsvDataParser.cs" t="Include" />
         <e p="test_History.cs" t="Include" />
         <e p="test_HistoryRepository.cs" t="Include" />

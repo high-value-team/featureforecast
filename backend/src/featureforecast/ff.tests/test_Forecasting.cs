@@ -13,7 +13,7 @@ namespace ff.tests
         {
             var simulationResults = new[] { 4f,6f,7f,8f,9f,10f,11f,20f,30f,40f,50f,70f,100f };
 
-            (float min, float max)[] result = Forecasting.Calculate_intervals(5, simulationResults).ToArray();
+            (float start, float end)[] result = Forecasting.Calculate_intervals(5, simulationResults).ToArray();
             
             Assert.AreEqual(5, result.Length);
             var expected = new[] {
@@ -27,9 +27,9 @@ namespace ff.tests
                 AreEqual(expected[i], result[i]);
 
 
-            void AreEqual((float min, float max) e, (float min, float max) r) {
-                Assert.AreEqual(e.min, r.min, 0.01f);
-                Assert.AreEqual(e.max, r.max, 0.01f);
+            void AreEqual((float min, float max) e, (float start, float end) r) {
+                Assert.AreEqual(e.min, r.start, 0.01f);
+                Assert.AreEqual(e.max, r.end, 0.01f);
             }
         }
     }

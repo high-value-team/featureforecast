@@ -19,6 +19,7 @@ namespace ff.service.core
             var simulationresults = montecarlo.Run(NUMBER_OF_SIMULATIONS, featureValues).ToArray();
 
             var intervals = Calculate_intervals(NUMBER_OF_FORECAST_INTERVALLS, simulationresults);
+            var histogram = new Histogram(intervals.ToArray(), simulationresults);
             
             // TODO: Forecasting
             // auswertung der simulationen
@@ -28,6 +29,10 @@ namespace ff.service.core
             //    intervallwahrscheinlichkeiten berechnen = n werte im intervall / gesamtanzahl der werte.
             //    intervalle auf forecast mappen
             throw new NotImplementedException();
+
+            return new Forecast {
+                Features = flattenedFeatureTags.Select(ftags => string.Join(",", ftags)).ToArray()
+            };
         }
 
         
@@ -39,7 +44,7 @@ namespace ff.service.core
                           .ToArray();
 
 
-        internal static IEnumerable<(float, float)> Calculate_intervals(int n, float[] simulationResults) {
+        internal static IEnumerable<(float start, float end)> Calculate_intervals(int n, float[] simulationResults) {
             var minResult = simulationResults.Min();
             var maxResult = simulationResults.Max();
 
