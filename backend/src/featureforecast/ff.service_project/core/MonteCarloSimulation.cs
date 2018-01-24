@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ff.service.core
 {
-    internal class MonteCarloSimulation
+    public class MonteCarloSimulation
     {
         private readonly Func<int, int> _rnd;
         

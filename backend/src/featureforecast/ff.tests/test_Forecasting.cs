@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using equalidator;
 using ff.service;
@@ -13,7 +15,13 @@ namespace ff.tests
         [Test]
         public void Forecast()
         {
+            var rndNumbers = new Queue<int>(new[] { 0 });
+            var montecarlo = new MonteCarloSimulation(_ => rndNumbers.Dequeue());
+            var sut = new Forecasting(montecarlo);
+
+            historicalData
             
+            var result = sut.Calculate(historicalData, features);
         }
         
         
