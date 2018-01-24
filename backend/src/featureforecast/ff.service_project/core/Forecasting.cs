@@ -10,9 +10,10 @@ namespace ff.service.core
         private const int NUMBER_OF_SIMULATIONS = 1000;
         private const int NUMBER_OF_FORECAST_INTERVALLS = 20;
         
+        
         public static Forecast Calculate(History.Datapoint[] historicalData, Feature[] features)
         {
-            var flattenedFeatureTags = features.Flatten();
+            var flattenedFeatureTags = features.Flatten().ToArray();
             var featureValues = Select_datapoints_for_features(flattenedFeatureTags, historicalData);
 
             var montecarlo = new MonteCarloSimulation();
@@ -20,18 +21,12 @@ namespace ff.service.core
 
             var intervals = Calculate_intervals(NUMBER_OF_FORECAST_INTERVALLS, simulationresults);
             var histogram = new Histogram(intervals.ToArray(), simulationresults);
-            
-            // TODO: Forecasting
-            // auswertung der simulationen
-            //    simulationsergebnisse gruppieren: den wertebereich in 20 intervalle teilen und die simulationsergebnise zuordnen.
-            //        der intervallwert ist der höchste ergebniswert darin.
-            //            pro intervall den aktuell höchsten wert und anzahl speichern
-            //    intervallwahrscheinlichkeiten berechnen = n werte im intervall / gesamtanzahl der werte.
-            //    intervalle auf forecast mappen
-            throw new NotImplementedException();
 
+            var distribution = Calculate_distribution(histogram);
+            
             return new Forecast {
-                Features = flattenedFeatureTags.Select(ftags => string.Join(",", ftags)).ToArray()
+                Features = flattenedFeatureTags.Select(ftags => string.Join(",", ftags)).ToArray(),
+                Distribution = distribution.ToArray()
             };
         }
 
@@ -55,6 +50,20 @@ namespace ff.service.core
                 var intervalEnd = intervalStart + intervalWidth;
                 yield return (intervalStart, intervalEnd);
                 intervalStart = intervalEnd;
+            }
+        }
+
+
+        internal static IEnumerable<Forecast.PossibleOutcome> Calculate_distribution(Histogram histogram) {
+            var totalNumberOfValues = histogram.Bins.Aggregate(0, (t, b) => t + b.NumberOfValues);
+            
+            var cummulatedNumberOfValues = 0;
+            foreach (var bin in histogram.Bins) {
+                cummulatedNumberOfValues += bin.NumberOfValues;
+                yield return new Forecast.PossibleOutcome {
+                    Prognosis = bin.MaxValue,
+                    CummulatedProbability = (float)cummulatedNumberOfValues / totalNumberOfValues
+                };
             }
         }
     }

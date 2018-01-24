@@ -7,7 +7,6 @@
         
         public class PossibleOutcomeDto {
             public float Prognosis;
-            public float CummulatedPrognosis;
             public float Probability;
         }
     }
