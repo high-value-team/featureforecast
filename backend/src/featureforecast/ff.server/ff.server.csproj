@@ -62,9 +62,9 @@
   <ItemGroup>
     <Compile Include="adapters\Config.cs" />
     <Compile Include="adapters\RESTControllerV1.cs" />
+    <Compile Include="adapters\Server.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

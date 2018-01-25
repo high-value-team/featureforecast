@@ -2,7 +2,6 @@
 {
     public class ForecastRequestDto
     {
-        public string Id;
         public FeatureDto[] Features;
 
         public class FeatureDto {

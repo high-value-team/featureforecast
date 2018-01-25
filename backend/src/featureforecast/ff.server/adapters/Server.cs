@@ -1,8 +1,7 @@
 ﻿using System;
-using ff.server.adapters;
 using ff.service;
 
-namespace ff.server
+namespace ff.server.adapters
 {
     class Server {
         public Server(IRequestHandler requestHandler) {

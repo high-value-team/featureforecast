@@ -9,6 +9,7 @@
         <e p="adapters" t="Include">
           <e p="Config.cs" t="Include" />
           <e p="RESTControllerV1.cs" t="Include" />
+          <e p="Server.cs" t="Include" />
         </e>
         <e p="ff.server.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
@@ -17,7 +18,6 @@
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
-        <e p="Server.cs" t="Include" />
       </e>
       <e p="ff.service_project" t="IncludeRecursive">
         <e p="adapters" t="Include">

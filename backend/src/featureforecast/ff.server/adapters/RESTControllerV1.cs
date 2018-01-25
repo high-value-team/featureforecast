@@ -13,7 +13,7 @@ namespace ff.server.adapters
         
         
         [EntryPoint(HttpMethods.Post, "/api/v1/histories")]
-        public string Create_history(NewHistoryDto newhistory) {
+        public string Create_history([Payload]NewHistoryDto newhistory) {
             Console.WriteLine($"create history: {newhistory.Id}, {newhistory.Name}, {newhistory.Email}, historical data: {newhistory.HistoricalData.Length}");
             
             __RequestHandler().Create_history(newhistory);
@@ -37,10 +37,11 @@ namespace ff.server.adapters
         }
 
 
-        public ForecastDto Calculate_forecast(ForecastRequestDto forecastRequest) {
-            Console.WriteLine($"calculate forecast for {forecastRequest.Id} with {forecastRequest.Features.Length} features");
+        [EntryPoint(HttpMethods.Get, "/api/v1/histories/{historyId}/forecast")]
+        public ForecastDto Calculate_forecast(string historyId, [Payload]ForecastRequestDto forecastRequest) {
+            Console.WriteLine($"calculate forecast for {historyId} with {forecastRequest.Features.Length} features");
 
-            return __RequestHandler().Calculate_forecast(forecastRequest);
+            return __RequestHandler().Calculate_forecast(historyId, forecastRequest);
         }
         
         

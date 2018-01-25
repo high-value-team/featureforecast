@@ -9,6 +9,7 @@ namespace ff.tests
         [Test]
         public void Ctor()
         {
+            //TODO: test mit gruppe, die keine werte enthält; da funktioniert Max() nicht
             var intervals = new[] {
                 (4f, 23.2f),
                 (23.2f, 42.4f),

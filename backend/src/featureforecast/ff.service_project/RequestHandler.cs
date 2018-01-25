@@ -60,8 +60,8 @@ namespace ff.service
         }
 
         
-        public ForecastDto Calculate_forecast(ForecastRequestDto request) {
-            var history = _repo.Load_history_by_id(request.Id);
+        public ForecastDto Calculate_forecast(string historyId, ForecastRequestDto request) {
+            var history = _repo.Load_history_by_id(historyId);
             Update_lastused(history);
             
             var forecast = _forecasting.Calculate(history.HistoricalData, Map_features(request.Features));

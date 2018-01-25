@@ -7,7 +7,7 @@ namespace ff.server
     internal class Program
     {
         public static void Main(string[] args) {
-            // TODO: GC abgelaufener Histories
+            //TODO: GC abgelaufener Histories
             Config.Load(args);
             
             var repo =new HistoryRepository(Config.DbPath);

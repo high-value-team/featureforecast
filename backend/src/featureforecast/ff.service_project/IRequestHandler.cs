@@ -7,6 +7,6 @@ namespace ff.service
         string Create_history(NewHistoryDto newhistory);
         HistoryDto Load_history_by_id(string id);
         HistoryDto Load_history_by_name(string name);
-        ForecastDto Calculate_forecast(ForecastRequestDto request);
+        ForecastDto Calculate_forecast(string historyId, ForecastRequestDto request);
     }
 }
