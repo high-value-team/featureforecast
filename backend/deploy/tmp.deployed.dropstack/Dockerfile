@@ -1,0 +1,6 @@
+FROM mono
+WORKDIR /deploy
+ADD . .
+ENV TOTALORDER_BACKEND_DATABASEPATH=/mnt
+EXPOSE 80
+ENTRYPOINT mono to.backend.exe

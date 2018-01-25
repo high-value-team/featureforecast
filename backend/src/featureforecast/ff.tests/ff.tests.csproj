@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="test_Distribution.cs" />
     <Compile Include="test_Feature.cs" />
     <Compile Include="test_Forecasting.cs" />
     <Compile Include="test_Historgram.cs" />

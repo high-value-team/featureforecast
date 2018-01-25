@@ -8,7 +8,7 @@ using ff.service.data.dto;
 
 namespace ff.service
 {
-    public class RequestHandler
+    public class RequestHandler : IRequestHandler
     {
         private const int EXPIRATION_PERIOD_DAYS = 7;
         
@@ -50,9 +50,8 @@ namespace ff.service
             };
         }
         
-        private DateTime Calculate_expiration_date(DateTime lastUsed) {
-            return lastUsed.AddDays(EXPIRATION_PERIOD_DAYS);
-        }
+        private DateTime Calculate_expiration_date(DateTime lastUsed)
+            => lastUsed.AddDays(EXPIRATION_PERIOD_DAYS);
 
         
         public HistoryDto Load_history_by_name(string name) {
@@ -75,6 +74,7 @@ namespace ff.service
                                                                         }).ToArray(),
             };
 
+            
             Feature[] Map_features(ForecastRequestDto.FeatureDto[] features)
                 => features.Select(f => new Feature {Tags = f.Tags, Quantity = f.Quantity}).ToArray();
             

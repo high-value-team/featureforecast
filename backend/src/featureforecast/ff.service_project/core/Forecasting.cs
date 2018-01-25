@@ -32,12 +32,11 @@ namespace ff.service.core
 
             var intervals = Calculate_intervals(_numberOfForecastIntervals, simulationresults);
             var histogram = new Histogram(intervals.ToArray(), simulationresults);
-
-            var distribution = Calculate_distribution(histogram);
+            var distribution = new Distribution(histogram);
             
             return new Forecast {
                 Features = flattenedFeatureTags.Select(ftags => string.Join(",", ftags)).ToArray(),
-                Distribution = distribution.ToArray()
+                Distribution = distribution.Values
             };
         }
 
@@ -61,20 +60,6 @@ namespace ff.service.core
                 var intervalEnd = intervalStart + intervalWidth;
                 yield return (intervalStart, intervalEnd);
                 intervalStart = intervalEnd;
-            }
-        }
-
-
-        internal static IEnumerable<Forecast.PossibleOutcome> Calculate_distribution(Histogram histogram) {
-            var totalNumberOfValues = histogram.Bins.Aggregate(0, (t, b) => t + b.NumberOfValues);
-            
-            var cummulatedNumberOfValues = 0;
-            foreach (var bin in histogram.Bins) {
-                cummulatedNumberOfValues += bin.NumberOfValues;
-                yield return new Forecast.PossibleOutcome {
-                    Prognosis = bin.MaxValue,
-                    CummulatedProbability = (float)cummulatedNumberOfValues / totalNumberOfValues
-                };
             }
         }
     }
