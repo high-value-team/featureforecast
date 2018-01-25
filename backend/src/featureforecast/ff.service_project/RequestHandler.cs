@@ -71,7 +71,7 @@ namespace ff.service
                 Id = history.Id,
                 Distribution = forecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto {
                                                                             Prognosis = d.Prognosis, 
-                                                                            Probability = d.CummulatedProbability
+                                                                            CummulatedProbability = d.CummulatedProbability
                                                                         }).ToArray(),
             };
 

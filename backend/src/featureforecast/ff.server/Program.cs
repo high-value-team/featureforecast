@@ -5,6 +5,7 @@
         public static void Main(string[] args)
         {
             //TODO: GC abgelaufener histories
+            //TODO: server + controller
         }
     }
 }
