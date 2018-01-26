@@ -8,4 +8,4 @@ cp dropstack/.dropstack.json tmp.deployed.dropstack
 cp dropstack/Dockerfile tmp.deployed.dropstack
 
 cd tmp.deployed.dropstack
-dropstack deploy --compress --verbose --alias totalorder-backend.cloud.dropstack.run --type mono --stateful --token $DROPSTACK_TOKEN
+dropstack deploy --compress --verbose --alias featureforecast-backend.cloud.dropstack.run --type mono --stateful --token $DROPSTACK_TOKEN

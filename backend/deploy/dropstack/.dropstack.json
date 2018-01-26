@@ -1,10 +1,10 @@
 {
   "variables": "",
   "instances": 1,
-  "alias": "totalorder-backend.cloud.dropstack.run",
+  "alias": "featureforecast-backend.cloud.dropstack.run",
   "type": "mono",
   "excludes": [],
   "stateful": true,
-  "name": "vyelximp",
-  "serviceUrl": "vyelximp.cloud.dropstack.run"
+  "name": "pkqgtvff",
+  "serviceUrl": "pkqgtvff.cloud.dropstack.run"
 }

@@ -64,9 +64,12 @@ namespace ff.tests
             
             Assert.AreEqual(new[]{"a", "a", "b"}, result.Features);
             Assert.AreEqual(2, result.Distribution.Length);
+            Assert.AreEqual(3, result.Distribution.Select(g => g.Count).Sum());
             Assert.AreEqual(13f, result.Distribution[0].Prognosis);
+            Assert.AreEqual(1, result.Distribution[0].Count);
             Assert.AreEqual(0.33f, result.Distribution[0].CummulatedProbability, 0.01f);
             Assert.AreEqual(26f, result.Distribution[1].Prognosis);
+            Assert.AreEqual(2, result.Distribution[1].Count);
             Assert.AreEqual(1f, result.Distribution[1].CummulatedProbability, 0.01f);
         }
         

@@ -6,6 +6,7 @@
         
         public class PossibleOutcome {
             public float Prognosis;
+            public int Count;
             public float CummulatedProbability;
         }
     }

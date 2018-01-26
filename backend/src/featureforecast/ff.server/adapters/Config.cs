@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using appcfg;
 
 namespace ff.server.adapters
@@ -23,5 +24,6 @@ namespace ff.server.adapters
         
         public static Uri Address { get; private set; }
         public static string DbPath { get; private set; }
+        public static string Version => Assembly.GetExecutingAssembly().GetName().Version.ToString();
     }
 }

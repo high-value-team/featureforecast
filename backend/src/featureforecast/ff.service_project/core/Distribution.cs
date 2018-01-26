@@ -18,6 +18,7 @@ namespace ff.service.core
                 cummulatedNumberOfValues += bin.NumberOfValues;
                 yield return new Forecast.PossibleOutcome {
                     Prognosis = bin.MaxValue,
+                    Count = bin.NumberOfValues,
                     CummulatedProbability = (float)cummulatedNumberOfValues / totalNumberOfValues
                 };
             }

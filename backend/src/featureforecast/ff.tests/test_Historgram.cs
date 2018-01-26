@@ -7,7 +7,7 @@ namespace ff.tests
     public class test_Historgram
     {
         [Test]
-        public void Ctor()
+        public void All_bins_contain_values()
         {
             //TODO: test mit gruppe, die keine werte enthält; da funktioniert Max() nicht
             var intervals = new[] {
@@ -28,6 +28,28 @@ namespace ff.tests
                 new Histogram.Bin{ MaxValue = 50f, NumberOfValues = 1 },
                 new Histogram.Bin{ MaxValue = 70f, NumberOfValues = 1 },
                 new Histogram.Bin{ MaxValue = 100f, NumberOfValues = 1 },
+            }, result);
+        }
+        
+        
+        [Test]
+        public void Some_bins_are_empty()
+        {
+            //TODO: test mit gruppe, die keine werte enthält; da funktioniert Max() nicht
+            var intervals = new[] {
+                (1f, 10f),
+                (10f, 20f),
+                (100f, 200f),
+            };
+            var values = new[] { 5f, 150f };
+            var sut = new Histogram(intervals, values);
+
+            var result = sut.Bins;
+            
+            equalidator.Equalidator.AreEqual(new[]{
+                new Histogram.Bin{ MaxValue = 5f, NumberOfValues = 1 },
+                new Histogram.Bin{ MaxValue = 0f, NumberOfValues = 0 },
+                new Histogram.Bin{ MaxValue = 150f, NumberOfValues = 1 }
             }, result);
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using ff.service.data;
 
 namespace ff.service.core
@@ -29,7 +31,7 @@ namespace ff.service.core
             var featureValues = Select_datapoints_for_features(flattenedFeatureTags, historicalData);
 
             var simulationresults = _montecarlo.Run(_numberOfSimulations, featureValues).ToArray();
-
+            
             var intervals = Calculate_intervals(_numberOfForecastIntervals, simulationresults);
             var histogram = new Histogram(intervals.ToArray(), simulationresults);
             var distribution = new Distribution(histogram);

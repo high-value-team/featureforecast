@@ -15,9 +15,11 @@ namespace ff.service
         private readonly HistoryRepository _repo;
         private readonly Forecasting _forecasting;
 
-        public RequestHandler(HistoryRepository repo) {
+        public RequestHandler(HistoryRepository repo)
+            : this(repo, new Forecasting(new MonteCarloSimulation())){}
+        internal RequestHandler(HistoryRepository repo, Forecasting forecasting) {
             _repo = repo;
-            _forecasting = new Forecasting(new MonteCarloSimulation());
+            _forecasting = forecasting;
         }
         
         
@@ -70,6 +72,7 @@ namespace ff.service
                 Id = history.Id,
                 Distribution = forecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto {
                                                                             Prognosis = d.Prognosis, 
+                                                                            Count = d.Count,
                                                                             CummulatedProbability = d.CummulatedProbability
                                                                         }).ToArray(),
             };

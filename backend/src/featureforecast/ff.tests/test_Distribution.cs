@@ -25,11 +25,11 @@ namespace ff.tests
             var result = sut.Values;
             
             Equalidator.AreEqual(new[] {
-                    new Forecast.PossibleOutcome{Prognosis = 20f, CummulatedProbability = 8f/13f},
-                    new Forecast.PossibleOutcome{Prognosis = 40f, CummulatedProbability = 10f/13f},
-                    new Forecast.PossibleOutcome{Prognosis = 50f, CummulatedProbability = 11f/13f},
-                    new Forecast.PossibleOutcome{Prognosis = 70f, CummulatedProbability = 12f/13f},
-                    new Forecast.PossibleOutcome{Prognosis = 100f, CummulatedProbability = 13f/13f},
+                    new Forecast.PossibleOutcome{Prognosis = 20f, Count=8, CummulatedProbability = 8f/13f},
+                    new Forecast.PossibleOutcome{Prognosis = 40f, Count=2, CummulatedProbability = 10f/13f},
+                    new Forecast.PossibleOutcome{Prognosis = 50f, Count=1, CummulatedProbability = 11f/13f},
+                    new Forecast.PossibleOutcome{Prognosis = 70f, Count=1, CummulatedProbability = 12f/13f},
+                    new Forecast.PossibleOutcome{Prognosis = 100f, Count=1, CummulatedProbability = 13f/13f},
                 },
                 result);
         }

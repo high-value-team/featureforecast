@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using ff.service;
 using ff.service.data.dto;
@@ -49,7 +50,7 @@ namespace ff.server.adapters
         public VersionDto Version() {
             return new VersionDto {
                 Timestamp = DateTime.Now,
-                Number = Assembly.GetExecutingAssembly().GetName().Version.ToString(),
+                Number = Config.Version,
                 DbPath = Config.DbPath
             };
         }

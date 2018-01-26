@@ -1,0 +1,181 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-01-26T08:36:33.602Z",
+	"__export_source": "insomnia.desktop.app:v5.12.4",
+	"resources": [
+		{
+			"_id": "wrk_8de0285813374242bf6754db6cf9b566",
+			"created": 1516898153606,
+			"description": "",
+			"modified": 1516898153606,
+			"name": "FeatureForecast",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_f744a85c2a9445c8a28e5a47ce742483",
+			"color": null,
+			"created": 1516898153796,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1516898153796,
+			"name": "New Environment",
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_10aa644f2df24757b1f791db36edb18a",
+			"cookies": [],
+			"created": 1516898153804,
+			"modified": 1516898153804,
+			"name": "Default Jar",
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_602685c42c7a43b6826a2ddb1802c5d5",
+			"authentication": {},
+			"body": {},
+			"created": 1516898234633,
+			"description": "",
+			"headers": [],
+			"metaSortKey": -1516898234633,
+			"method": "GET",
+			"modified": 1516898245082,
+			"name": "version",
+			"parameters": [],
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{domain}}/api/v1/version",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0b73221cc47744d8b094f9833f2b8585",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"id\":\"abc\",\n\t\"name\":\"first history\",\n\t\"email\": \"balin@ralfw.de\",\n\t\"historicaldata\":[\n\t\t{\n\t\t\t\"value\":1.0,\n\t\t\t\"tags\":[\"a\"]\n\t\t},\n\t\t{\n\t\t\t\"value\":2.0,\n\t\t\t\"tags\":[\"a\"]\n\t\t}\n\t],\n\t\"historicaldatatoparse\": \"2;a,x\\n3;a\\n3;a\\n4;a\\n10;b,x\\n10;b\\n20;b\\n20;b\\n30;b,x\"\n}"
+			},
+			"created": 1516898460874,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_da74e57297bb4295b712826acb5e2185",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1516898460874,
+			"method": "POST",
+			"modified": 1516953384863,
+			"name": "create history",
+			"parameters": [],
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{domain}}/api/v1/histories",
+			"_type": "request"
+		},
+		{
+			"_id": "req_14da40c4d6d54590b0d0f8e41f9ffd4d",
+			"authentication": {},
+			"body": {},
+			"created": 1516904271840,
+			"description": "",
+			"headers": [],
+			"metaSortKey": -1516904271840,
+			"method": "GET",
+			"modified": 1516904299433,
+			"name": "load history by id",
+			"parameters": [],
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{domain}}/api/v1/histories/abc",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b871e7d2dbcf4049832fdbd55569228a",
+			"authentication": {},
+			"body": {},
+			"created": 1516904340527,
+			"description": "",
+			"headers": [],
+			"metaSortKey": -1516904340527,
+			"method": "GET",
+			"modified": 1516904356500,
+			"name": "load history by name",
+			"parameters": [],
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{domain}}/api/v1/histories?name=first history",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5bef3d5b66dd44bfa0f20fc3193bfe61",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"features\": [\n\t\t{\n\t\t\t\"quantity\":2,\n\t\t\t\"tags\":[\"a\"]\n\t\t},\n\t\t{\n\t\t\t\"quantity\":1,\n\t\t\t\"tags\":[\"b\"]\n\t\t}\n\t]\n}"
+			},
+			"created": 1516904389638,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_e224798c4009457ebc7991de12d973bc",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1516904389638,
+			"method": "GET",
+			"modified": 1516904866153,
+			"name": "calculate forecast",
+			"parameters": [],
+			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{domain}}/api/v1/histories/abc/forecast",
+			"_type": "request"
+		},
+		{
+			"_id": "env_9ac3bf4b09844c41add27d92a1c07b68",
+			"color": null,
+			"created": 1516898161826,
+			"data": {
+				"domain": "http://localhost:8080"
+			},
+			"isPrivate": false,
+			"modified": 1516898179294,
+			"name": "local",
+			"parentId": "env_f744a85c2a9445c8a28e5a47ce742483",
+			"_type": "environment"
+		},
+		{
+			"_id": "env_50b4041501864d59b646b3caaec9b2f6",
+			"color": null,
+			"created": 1516898187338,
+			"data": {
+				"domain": "http://featureforecast-backend.cloud.dropstack.run"
+			},
+			"isPrivate": false,
+			"modified": 1516898211919,
+			"name": "dropstack",
+			"parentId": "env_f744a85c2a9445c8a28e5a47ce742483",
+			"_type": "environment"
+		}
+	]
+}
