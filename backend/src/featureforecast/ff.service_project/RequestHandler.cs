@@ -10,7 +10,7 @@ namespace ff.service
 {
     public class RequestHandler : IRequestHandler
     {
-        private const int EXPIRATION_PERIOD_DAYS = 7;
+
         
         private readonly HistoryRepository _repo;
         private readonly Forecasting _forecasting;
@@ -43,7 +43,7 @@ namespace ff.service
         public HistoryDto Load_history_by_id(string id) {
             var history = _repo.Load_history_by_id(id);
             return new HistoryDto {
-                ExpirationDate = Calculate_expiration_date(history.LastUsed),
+                ExpirationDate = _repo.Calculate_expiration_date(history.LastUsed),
                 
                 Id = history.Id,
                 Email = history.Email,
@@ -52,10 +52,7 @@ namespace ff.service
             };
         }
         
-        private DateTime Calculate_expiration_date(DateTime lastUsed)
-            => lastUsed.AddDays(EXPIRATION_PERIOD_DAYS);
 
-        
         public HistoryDto Load_history_by_name(string name) {
             var histId = _repo.Map_name_to_id(name);
             return Load_history_by_id(histId);

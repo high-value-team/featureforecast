@@ -17,8 +17,7 @@ namespace ff.server.adapters
         public string Create_history([Payload]NewHistoryDto newhistory) {
             Console.WriteLine($"create history: {newhistory.Id}, {newhistory.Name}, {newhistory.Email}, historical data: {newhistory.HistoricalData.Length}");
             
-            __RequestHandler().Create_history(newhistory);
-            return newhistory.Id;
+            return __RequestHandler().Create_history(newhistory);
         }
 
         

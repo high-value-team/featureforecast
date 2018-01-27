@@ -8,15 +8,16 @@ namespace ff.server
     internal class Program
     {
         public static void Main(string[] args) {
-            //TODO: GC abgelaufener Histories
             Config.Load(args);
             Console.WriteLine($"ff.server Version {Config.Version}, db path: {Config.DbPath}");
             
             var repo =new HistoryRepository(Config.DbPath);
             var rh = new RequestHandler(repo);
             var server = new Server(rh);
-            
-            server.Run(Config.Address);
+
+            using (new PeriodicGarbageCollection(repo.Delete_expired_histories)) {
+                server.Run(Config.Address);
+            }
         }
     }
 }
