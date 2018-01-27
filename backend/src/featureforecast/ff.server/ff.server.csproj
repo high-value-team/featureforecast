@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adapters\Config.cs" />
+    <Compile Include="adapters\PeriodicGarbageCollection.cs" />
     <Compile Include="adapters\RESTControllerV1.cs" />
     <Compile Include="adapters\Server.cs" />
     <Compile Include="Program.cs" />

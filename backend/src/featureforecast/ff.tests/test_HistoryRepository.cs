@@ -146,5 +146,43 @@ namespace ff.tests
             
             Assert.AreEqual(histId, foundId);
         }
+
+
+        [Test]
+        public void Garbage_collection()
+        {
+            var sut = new HistoryRepository(REPO_PATH);
+            
+            var history = new History {
+                Id = "NOTexpired1",
+                LastUsed = DateTime.Now.ToUniversalTime()
+            };
+            sut.Store_history(history);
+            
+            history = new History {
+                Id = "expired1",
+                LastUsed = new DateTime(2000,1,1,10,53,0).ToUniversalTime()
+            };
+            sut.Store_history(history);
+            
+            history = new History {
+                Id = "NOTexpired2",
+                LastUsed = DateTime.Now.ToUniversalTime()
+            };
+            sut.Store_history(history);
+            
+            history = new History {
+                Id = "expired2",
+                LastUsed = new DateTime(2010,1,1,10,53,0).ToUniversalTime()
+            };
+            sut.Store_history(history);
+            Assert.AreEqual(4, Directory.GetFiles(REPO_PATH).Length);
+            
+            sut.Delete_expired_histories();
+
+            Assert.AreEqual(2, Directory.GetFiles(REPO_PATH).Length);
+            sut.Load_history_by_id("NOTexpired1");
+            sut.Load_history_by_id("NOTexpired2");
+        }
     }
 }
