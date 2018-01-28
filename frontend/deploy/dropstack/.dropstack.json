@@ -1,0 +1,10 @@
+{
+  "variables": "",
+  "instances": 1,
+  "alias": "featureforecast.cloud.dropstack.run",
+  "type": "web",
+  "excludes": [],
+  "stateful": false,
+  "name": "gyujiyzj",
+  "serviceUrl": "gyujiyzj.cloud.dropstack.run"
+}
