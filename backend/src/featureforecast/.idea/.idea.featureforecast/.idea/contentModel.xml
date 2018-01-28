@@ -34,8 +34,8 @@
         <e p="data" t="Include">
           <e p="dto" t="Include">
             <e p="DatapointDto.cs" t="Include" />
+            <e p="FeatureDto.cs" t="Include" />
             <e p="ForecastDto.cs" t="Include" />
-            <e p="ForecastRequestDto.cs" t="Include" />
             <e p="HistoryDto.cs" t="Include" />
             <e p="NewHistoryDto.cs" t="Include" />
           </e>

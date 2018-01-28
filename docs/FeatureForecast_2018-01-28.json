@@ -1,7 +1,7 @@
 {
 	"_type": "export",
 	"__export_format": 3,
-	"__export_date": "2018-01-26T08:36:33.602Z",
+	"__export_date": "2018-01-28T10:00:48.854Z",
 	"__export_source": "insomnia.desktop.app:v5.12.4",
 	"resources": [
 		{
@@ -58,7 +58,7 @@
 			"authentication": {},
 			"body": {
 				"mimeType": "application/json",
-				"text": "{\n\t\"id\":\"abc\",\n\t\"name\":\"first history\",\n\t\"email\": \"balin@ralfw.de\",\n\t\"historicaldata\":[\n\t\t{\n\t\t\t\"value\":1.0,\n\t\t\t\"tags\":[\"a\"]\n\t\t},\n\t\t{\n\t\t\t\"value\":2.0,\n\t\t\t\"tags\":[\"a\"]\n\t\t}\n\t],\n\t\"historicaldatatoparse\": \"2;a,x\\n3;a\\n3;a\\n4;a\\n10;b,x\\n10;b\\n20;b\\n20;b\\n30;b,x\"\n}"
+				"text": "{\n\t\"id\": \"abc\",\n\t\"name\":\"first history\",\n\t\"email\": \"balin@ralfw.de\",\n\t\"historicaldata\":[\n\t\t{\n\t\t\t\"value\":1.0,\n\t\t\t\"tags\":[\"a\"]\n\t\t},\n\t\t{\n\t\t\t\"value\":2.0,\n\t\t\t\"tags\":[\"a\"]\n\t\t}\n\t],\n\t\"historicaldatatoparse\": \"2;a,x\\n3;a\\n3;a\\n4;a\\n10;b,x\\n10;b\\n20;b\\n20;b\\n30;b,x\"\n}"
 			},
 			"created": 1516898460874,
 			"description": "",
@@ -71,7 +71,7 @@
 			],
 			"metaSortKey": -1516898460874,
 			"method": "POST",
-			"modified": 1516953384863,
+			"modified": 1517037683519,
 			"name": "create history",
 			"parameters": [],
 			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
@@ -125,22 +125,13 @@
 		{
 			"_id": "req_5bef3d5b66dd44bfa0f20fc3193bfe61",
 			"authentication": {},
-			"body": {
-				"mimeType": "application/json",
-				"text": "{\n\t\"features\": [\n\t\t{\n\t\t\t\"quantity\":2,\n\t\t\t\"tags\":[\"a\"]\n\t\t},\n\t\t{\n\t\t\t\"quantity\":1,\n\t\t\t\"tags\":[\"b\"]\n\t\t}\n\t]\n}"
-			},
+			"body": {},
 			"created": 1516904389638,
 			"description": "",
-			"headers": [
-				{
-					"id": "pair_e224798c4009457ebc7991de12d973bc",
-					"name": "Content-Type",
-					"value": "application/json"
-				}
-			],
+			"headers": [],
 			"metaSortKey": -1516904389638,
 			"method": "GET",
-			"modified": 1516904866153,
+			"modified": 1517132329528,
 			"name": "calculate forecast",
 			"parameters": [],
 			"parentId": "wrk_8de0285813374242bf6754db6cf9b566",
@@ -148,7 +139,7 @@
 			"settingEncodeUrl": true,
 			"settingSendCookies": true,
 			"settingStoreCookies": true,
-			"url": "{{domain}}/api/v1/histories/abc/forecast",
+			"url": "{{domain}}/api/v1/histories/abc/forecast?features=[{\"quantity\":2,\"tags\":[\"a\"]},{\"quantity\":1,\"tags\":[\"b\"]}]",
 			"_type": "request"
 		},
 		{
