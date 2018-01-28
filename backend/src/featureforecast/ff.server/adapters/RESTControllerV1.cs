@@ -38,10 +38,10 @@ namespace ff.server.adapters
 
 
         [EntryPoint(HttpMethods.Get, "/api/v1/histories/{historyId}/forecast")]
-        public ForecastDto Calculate_forecast(string historyId, [Payload]ForecastRequestDto forecastRequest) {
-            Console.WriteLine($"calculate forecast for {historyId} with {forecastRequest.Features.Length} features");
+        public ForecastDto Calculate_forecast(string historyId, FeatureDto[] features) {
+            Console.WriteLine($"calculate forecast for {historyId} with {features.Length} features");
 
-            return __RequestHandler().Calculate_forecast(historyId, forecastRequest);
+            return __RequestHandler().Calculate_forecast(historyId, features);
         }
         
         

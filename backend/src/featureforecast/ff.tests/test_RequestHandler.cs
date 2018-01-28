@@ -57,11 +57,9 @@ namespace ff.tests
             Assert.AreEqual("balin@ralfw.de", history.Email);
 
             var forecast = sut.Calculate_forecast(historyId,
-                                                  new ForecastRequestDto {
-                                                      Features = new[] {
-                                                          new ForecastRequestDto.FeatureDto {Quantity = 2, Tags = new[] {"a"}},
-                                                          new ForecastRequestDto.FeatureDto {Quantity = 1, Tags = new[] {"b"}},
-                                                      }
+                                                  new[] {
+                                                          new FeatureDto {Quantity = 2, Tags = new[] {"a"}},
+                                                          new FeatureDto {Quantity = 1, Tags = new[] {"b"}},
                                                   });
             
             Assert.AreEqual(NUMBER_OF_SIMULATIONS, forecast.Distribution.Select(p => p.Count).Sum());

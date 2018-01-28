@@ -59,11 +59,11 @@ namespace ff.service
         }
 
         
-        public ForecastDto Calculate_forecast(string historyId, ForecastRequestDto request) {
+        public ForecastDto Calculate_forecast(string historyId, FeatureDto[] features) {
             var history = _repo.Load_history_by_id(historyId);
             Update_lastused(history);
             
-            var forecast = _forecasting.Calculate(history.HistoricalData, Map_features(request.Features));
+            var forecast = _forecasting.Calculate(history.HistoricalData, Map_features());
 
             return new ForecastDto {
                 Id = history.Id,
@@ -75,7 +75,7 @@ namespace ff.service
             };
 
             
-            Feature[] Map_features(ForecastRequestDto.FeatureDto[] features)
+            Feature[] Map_features()
                 => features.Select(f => new Feature {Tags = f.Tags, Quantity = f.Quantity}).ToArray();
             
             void Update_lastused(History h) {

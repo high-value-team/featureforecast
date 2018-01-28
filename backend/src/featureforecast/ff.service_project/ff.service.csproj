@@ -48,7 +48,7 @@
     <Compile Include="core\MonteCarloSimulation.cs" />
     <Compile Include="data\dto\DatapointDto.cs" />
     <Compile Include="data\dto\ForecastDto.cs" />
-    <Compile Include="data\dto\ForecastRequestDto.cs" />
+    <Compile Include="data\dto\FeatureDto.cs" />
     <Compile Include="data\dto\HistoryDto.cs" />
     <Compile Include="data\dto\NewHistoryDto.cs" />
     <Compile Include="data\Feature.cs" />
