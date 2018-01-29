@@ -37,7 +37,7 @@ export function newForecast(projectID, distribution) {
 export function resetFeatures() {
     return {
         type: RESET_FEATURES,
-        features: '',
+        features: [],
     }
 }
 
@@ -72,8 +72,6 @@ export function submitHistory(project) {
             .then((projectID) => {
                 dispatch(newID(projectID));
                 browserHistory.push(`/${projectID}/history`);
-                // browserHistory.push(`/abc/history`);
-                console.log('Success in submitHistory, projectID:', projectID);
             })
             .catch((err) => {
                 console.warn('Error in submitHistory', err);
@@ -85,38 +83,15 @@ export function generateForecastQueryAndRedirect(projectID, features) {
     return function(dispatch) {
         dispatch(setFeatures(features));
         browserHistory.push(`/${projectID}/forecast?features=${JSON.stringify(features)}`);
-
-        // const query = jsonQueryStringify(features);
-        // const encoded = encodeURIComponent(query);
-        // const decoded = decodeURIComponent(encoded);
-        // const features2 = jsonQueryParse(decoded);
-        // console.log(`query:${query}`);
-        // console.log(`query2:${JSON.stringify(features2, null, 2)}`);
-        // browserHistory.push(`/${projectID}/forecast?features=${encodeURIComponent(query)}`);
-        // browserHistory.push(`/${projectID}/forecast?features=${encodeURIComponent(JSON.stringify(features))}`);
-
-        // browserHistory.push({
-        //     pathname: `/${projectID}/forecast`,
-        //     search: jsonQueryStringify(features)
-        //     // search: `?features=${jsonQueryStringify(features)}`
-        //     // search: `?features=${encodeURIComponent(query)}`
-        //     // search: `?features=${encodeURIComponent(jsonQueryStringify(features))}`
-        // })
-
-        // https://github.com/ReactTraining/react-router/issues/4410
-        // this.props.push({
-        //     pathname: this.props.location.pathname,
-        //     query: Object.assign({}, this.props.location.query, { foo: "bar" })
-        // });
     }
 }
 
 export function calculateForecast(projectID, features) {
     return function(dispatch) {
+        dispatch(setFeatures(features));
         api.calculateForecast(projectID, features)
             .then((distribution) => {
                 dispatch(newForecast(projectID, distribution));
-                console.log('Success in calculateForecast');
             })
             .catch((err) => {
                 console.warn('Error in calculateForecast:', err);
@@ -174,7 +149,7 @@ const initialState = {
     historicalData: [],
     expirationDate: '',
     version: '',
-    distribution: '',
+    distribution: [],
     features: [],
 };
 

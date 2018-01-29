@@ -80,7 +80,7 @@ class ForecastContainer extends React.Component {
             ['Probability', 'Prognosis', {role: 'annotation'}],
             ...chartData];
             // ...this.props.distribution];
-        console.log(`data:${JSON.stringify(data, null, 2)}`);
+        // console.log(`data:${JSON.stringify(data, null, 2)}`);
 
         return (
             <div className={classes.root}>
