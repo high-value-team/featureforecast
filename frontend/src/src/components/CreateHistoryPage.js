@@ -31,16 +31,6 @@ const styles = theme => ({
     title: {
         // margin: theme.spacing.unit,
     },
-    textField: {
-        // marginLeft: theme.spacing.unit,
-        // marginRight: theme.spacing.unit,
-        width: '250px'
-    },
-    textFieldBig: {
-        // marginLeft: theme.spacing.unit,
-        // marginRight: theme.spacing.unit,
-        // width: '90%',
-    },
     submitButton: {
         marginTop: '50px',
         // marginLeft: theme.spacing.unit,
@@ -115,8 +105,8 @@ class CreateHistoryPage extends React.Component {
     transformHistoricalDataItems(items) {
         return items.map((item) => {
             return {
-                value: parseFloat(item.value).toFixed(1),
-                tags: item.tags.split(','),
+                value: parseFloat(item.value.replace(',','.')).toFixed(1),
+                tags: item.tags.split(/\s*;\s*|\s*,\s*/).filter(Boolean),
             };
         });
     }
@@ -225,8 +215,8 @@ class CreateHistoryPage extends React.Component {
                             <TextField
                                 error={this.state.titleError ? true : false}
                                 id="title"
-                                label="Project Title"
-                                className={classes.textField}
+                                label="History name"
+                                style={{width: '250px'}}
                                 value={state.title}
                                 onChange={this.onTextFieldChange}
                                 margin="normal"
@@ -240,8 +230,8 @@ class CreateHistoryPage extends React.Component {
                         <FormControl error aria-describedby="email-error-text">
                             <TextField
                                 id="email"
-                                label="Your Email"
-                                className={classes.textField}
+                                label="Your email"
+                                style={{width: '250px'}}
                                 value={state.email}
                                 onChange={this.onTextFieldChange}
                                 margin="normal"
@@ -263,7 +253,7 @@ class CreateHistoryPage extends React.Component {
                                     <TextField
                                         // id={item.id}
                                         label=""
-                                        className={classes.textField}
+                                        style={{width: '150px'}}
                                         value={item.value}
                                         onChange={(e) => this.updateValue(e, index)}
                                         margin="normal"
@@ -272,12 +262,11 @@ class CreateHistoryPage extends React.Component {
                                     <TextField
                                         // id={item.id}
                                         label=""
-                                        className={classes.textField}
+                                        style={{width: '350px', marginLeft:'10px'}}
                                         value={item.tags}
                                         onChange={(e) => this.updateTags(e, index)}
                                         margin="normal"
                                         type="text"
-                                        style={{marginLeft:'10px'}}
                                     />
                                     <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                         <RemoveIcon className={classes.button} onClick={() => this.removeItem(index)}/>
@@ -289,7 +278,7 @@ class CreateHistoryPage extends React.Component {
                             <div className={classes.row}>
                                 <TextField
                                     label="value"
-                                    className={classes.textField}
+                                    style={{width: '150px'}}
                                     value={this.state.newItemValue}
                                     onChange={(e)=> this.setState({newItemValue: e.target.value})}
                                     margin="normal"
@@ -297,12 +286,11 @@ class CreateHistoryPage extends React.Component {
                                 />
                                 <TextField
                                     label="tags"
-                                    className={classes.textField}
+                                    style={{width: '350px', marginLeft:'10px'}}
                                     value={this.state.newItemTags}
                                     onChange={(e)=> this.setState({newItemTags: e.target.value})}
                                     margin="normal"
                                     type="text"
-                                    style={{marginLeft:'10px'}}
                                 />
                                 <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                     <AddIcon className={classes.button} onClick={this.addItem}/>
@@ -312,7 +300,7 @@ class CreateHistoryPage extends React.Component {
                     </ol>
 
                     <Typography type="title" color="inherit" style={{fontWeight: 'bold', marginTop:'40px', color:'#0000008a'}}>
-                        Batch Data
+                        Historical data as a batch
                     </Typography>
 
                     <div className={classes.row}>
@@ -321,14 +309,12 @@ class CreateHistoryPage extends React.Component {
                                 id="historicalDataBatch"
                                 label=""
                                 multiline
-                                rows="5"
                                 rowsMax="99"
-                                className={classes.textField}
+                                style={{width: '510px'}}
                                 value={this.state.historicalDataBatch}
                                 onChange={(e)=> this.setState({historicalDataBatch: e.target.value})}
                                 margin="normal"
                                 type="text"
-                                style={{width:'510px'}}
                             />
                             {this.state.historicalDataError ? <FormHelperText id="historical-data-error-text" style={{marginTop:'0px'}}>{this.state.historicalDataError}</FormHelperText> : null }
                         </FormControl>

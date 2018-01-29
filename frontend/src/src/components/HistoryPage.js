@@ -27,16 +27,6 @@ const styles = theme => ({
     title: {
         // margin: theme.spacing.unit,
     },
-    textField: {
-        // marginLeft: theme.spacing.unit,
-        // marginRight: theme.spacing.unit,
-        width: '250px'
-    },
-    textFieldBig: {
-        // marginLeft: theme.spacing.unit,
-        // marginRight: theme.spacing.unit,
-        // width: '90%',
-    },
     submitButton: {
         marginTop: '50px',
         // marginLeft: theme.spacing.unit,
@@ -104,8 +94,8 @@ class HistoryPage extends React.Component {
         if (this.validate()) {
             const features = this.state.features.map((feature, index) => {
                 return {
-                    quantity: parseFloat(feature.quantity),
-                    tags: feature.tags.split(','),
+                    quantity: parseFloat(feature.quantity.replace(',','.')),
+                    tags: feature.tags.split(/\s*;\s*|\s*,\s*/).filter(Boolean),
                 };
             });
             this.props.generateForecastQueryAndRedirect(this.props.projectID, features);
@@ -199,7 +189,7 @@ class HistoryPage extends React.Component {
                                 <div className={classes.row}>
                                     <TextField
                                         label=""
-                                        className={classes.textField}
+                                        style={{width: '350px'}}
                                         value={feature.tags}
                                         onChange={(e) => this.updateTags(e, index)}
                                         margin="normal"
@@ -207,12 +197,11 @@ class HistoryPage extends React.Component {
                                     />
                                     <TextField
                                         label=""
-                                        className={classes.textField}
+                                        style={{width: '150px', marginLeft:'10px'}}
                                         value={feature.quantity}
                                         onChange={(e) => this.updateQuantity(e, index)}
                                         margin="normal"
                                         type="text"
-                                        style={{marginLeft:'10px'}}
                                     />
                                     <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                         <RemoveIcon className={classes.button} onClick={() => this.removeFeature(index)}/>
@@ -225,7 +214,7 @@ class HistoryPage extends React.Component {
                                 <FormControl error aria-describedby="features-error-text">
                                     <TextField
                                         label="tags"
-                                        className={classes.textField}
+                                        style={{width: '350px'}}
                                         value={this.state.newFeatureTags}
                                         onChange={(e)=> this.setState({newFeatureTags: e.target.value})}
                                         margin="normal"
@@ -235,12 +224,11 @@ class HistoryPage extends React.Component {
                                 </FormControl>
                                 <TextField
                                     label="quantity"
-                                    className={classes.textField}
+                                    style={{width: '150px',marginLeft:'10px'}}
                                     value={this.state.newFeatureQuantity}
                                     onChange={(e)=> this.setState({newFeatureQuantity: e.target.value})}
                                     margin="normal"
                                     type="text"
-                                    style={{marginLeft:'10px'}}
                                 />
                                 <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                     <AddIcon className={classes.button} onClick={this.addFeature}/>
