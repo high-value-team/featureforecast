@@ -247,7 +247,7 @@ class HistoryPage extends React.Component {
 
                     <div>
                         <Button raised={true} color="primary" className={classes.submitButton} onClick={this.onSubmit}>
-                            Historical data:
+                            Historical data
                         </Button>
                     </div>
 
