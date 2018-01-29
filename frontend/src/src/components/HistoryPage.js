@@ -149,6 +149,8 @@ class HistoryPage extends React.Component {
             newFeatureTags: '',
             newFeatureQuantity: '',
         });
+
+        this.newFeatureTagField.focus();
     }
 
     removeFeature (index) {
@@ -241,6 +243,7 @@ class HistoryPage extends React.Component {
                                         onChange={(e)=> this.setState({newFeatureTags: e.target.value})}
                                         margin="normal"
                                         type="text"
+                                        inputRef={ field => this.newFeatureTagField = field }
                                     />
                                     {this.state.featuresError ? <FormHelperText id="features-error-text" style={{marginTop:'0px'}}>{this.state.featuresError}</FormHelperText> : null }
                                 </FormControl>
@@ -271,6 +274,7 @@ class HistoryPage extends React.Component {
                     </Typography>
 
                     <HistoricalDataTable data={this.props.historicalData} />
+
                 </Paper>
             </div>
         );

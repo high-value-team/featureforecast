@@ -20,7 +20,6 @@ class HistoricalDataTable extends React.Component {
     };
 
     render() {
-        console.log(`data:${this.props.data}`);
         return (
             <div>
                 <Table>
@@ -35,7 +34,7 @@ class HistoricalDataTable extends React.Component {
                             return (
                                 <TableRow key={`row-${i}`}>
                                     <TableCell>{n.value}</TableCell>
-                                    <TableCell>{n.tags}</TableCell>
+                                    <TableCell>{n.tags.join(',')}</TableCell>
                                 </TableRow>
                             );
                         })}

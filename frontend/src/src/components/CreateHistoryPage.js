@@ -174,6 +174,8 @@ class CreateHistoryPage extends React.Component {
             newItemValue: '',
             newItemTags: '',
         });
+
+        this.newItemValueField.focus();
     }
 
     removeItem (index) {
@@ -291,6 +293,7 @@ class CreateHistoryPage extends React.Component {
                                     onChange={(e)=> this.setState({newItemValue: e.target.value})}
                                     margin="normal"
                                     type="text"
+                                    inputRef={ field => this.newItemValueField = field }
                                 />
                                 <TextField
                                     label="tags"

@@ -8,7 +8,7 @@ import {withStyles} from "material-ui/styles/index";
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import { Chart } from 'react-google-charts';
+import ForecastChart from '../components/ForecastChart';
 
 const styles = theme => ({
     root: {
@@ -74,14 +74,6 @@ class ForecastContainer extends React.Component {
     render() {
 
         const { classes } = this.props;
-        const chartData = this.props.distribution && this.props.distribution.map((d) => {
-            return [d.cummulatedProbability, d.prognosis, d.count];
-        });
-        const data = [
-            ['Probability', 'Prognosis', {role: 'annotation'}],
-            ...chartData];
-            // ...this.props.distribution];
-        // console.log(`data:${JSON.stringify(data, null, 2)}`);
 
         return (
             <div className={classes.root}>
@@ -102,28 +94,7 @@ class ForecastContainer extends React.Component {
                         })}
                     </ol>
 
-                    <Chart
-                        chartType="BarChart"
-                        data={data}
-                        options={{
-                            title: 'Feature Forecast',
-                            chartArea: {width: '60%'},
-                            orientation: 'horizontal',
-                            legend: {position: 'none'},
-                            colors: ['#b0120a', '#ffab91'],
-                            hAxis: {
-                                title: 'Probability',
-                                minValue: 0
-                            },
-                            vAxis: {
-                                title: 'Prognosis',
-                            }
-                        }}
-                        graph_id="BarChart"
-                        width="100%"
-                        height="400px"
-                        legend_toggle
-                    />
+                    <ForecastChart distribution={this.props.distribution} />
 
                     <div style={{marginTop:'50px'}}>
                         <Button raised={true} color="primary" onClick={this.onBack}>
