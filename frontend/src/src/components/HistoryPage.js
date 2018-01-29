@@ -83,6 +83,7 @@ class HistoryPage extends React.Component {
             newFeatureQuantity: '',
             featuresError: null,
         };
+        this.parseExpirationDate = this.parseExpirationDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.validate = this.validate.bind(this);
         this.addFeature = this.addFeature.bind(this);
@@ -90,6 +91,17 @@ class HistoryPage extends React.Component {
         this.updateQuantity = this.updateQuantity.bind(this);
         this.updateTags = this.updateTags.bind(this);
         this.newFeatureHandleKeyPress = this.newFeatureHandleKeyPress.bind(this);
+    }
+
+    parseExpirationDate(date) {
+        const pad = (n) => String("00" + n).slice(-2);
+        if (date.length === 0) {
+            return date;
+        }
+
+        var d = new Date(date);
+        // return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+        return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()}`;
     }
 
     onSubmit () {
@@ -183,7 +195,7 @@ class HistoryPage extends React.Component {
                         History: {this.props.name}
                     </Typography>
                     <Typography type="title" style={{color: '#0000008a', marginTop: '10px', marginBottom: '20px', marginRight: '10px'}}>
-                        Expiration Date: {this.props.expirationDate}
+                        Expiration Date: {this.parseExpirationDate(this.props.expirationDate)}
                     </Typography>
 
 
