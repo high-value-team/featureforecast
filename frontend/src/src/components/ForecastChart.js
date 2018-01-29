@@ -39,12 +39,13 @@ class ForecastChart extends React.Component {
                     orientation: 'horizontal',
                     legend: {position: 'none'},
                     colors: ['#b0120a', '#ffab91'],
+                    bar: {groupWidth: "95%"},
                     hAxis: {
                         title: 'Probability',
                         minValue: 0
                     },
                     vAxis: {
-                        title: 'Prognosis',
+                        title: 'Count',
                     }
                 }}
                 graph_id="BarChart"
