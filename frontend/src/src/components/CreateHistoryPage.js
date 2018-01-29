@@ -88,6 +88,7 @@ class CreateHistoryPage extends React.Component {
         this.addItem = this.addItem.bind(this);
         this.updateValue = this.updateValue.bind(this);
         this.updateTags = this.updateTags.bind(this);
+        this.newItemHandleKeyPress = this.newItemHandleKeyPress.bind(this);
     }
 
     onSubmit () {
@@ -202,6 +203,12 @@ class CreateHistoryPage extends React.Component {
         this.setState({historicalDataItems: items});
     }
 
+    newItemHandleKeyPress (e) {
+        if (e.key === 'Enter') {
+            this.addItem();
+        }
+    }
+
     render() {
 
         const { classes } = this.props;
@@ -291,6 +298,7 @@ class CreateHistoryPage extends React.Component {
                                     onChange={(e)=> this.setState({newItemTags: e.target.value})}
                                     margin="normal"
                                     type="text"
+                                    onKeyPress={this.newItemHandleKeyPress}
                                 />
                                 <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                     <AddIcon className={classes.button} onClick={this.addItem}/>

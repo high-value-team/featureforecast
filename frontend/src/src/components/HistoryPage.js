@@ -88,6 +88,7 @@ class HistoryPage extends React.Component {
         this.removeFeature = this.removeFeature.bind(this);
         this.updateQuantity = this.updateQuantity.bind(this);
         this.updateTags = this.updateTags.bind(this);
+        this.newFeatureHandleKeyPress = this.newFeatureHandleKeyPress.bind(this);
     }
 
     onSubmit () {
@@ -163,6 +164,12 @@ class HistoryPage extends React.Component {
         this.setState({features: features});
     }
 
+    newFeatureHandleKeyPress (e) {
+        if (e.key === 'Enter') {
+            this.addFeature();
+        }
+    }
+
     render() {
 
         const { classes } = this.props;
@@ -229,6 +236,7 @@ class HistoryPage extends React.Component {
                                     onChange={(e)=> this.setState({newFeatureQuantity: e.target.value})}
                                     margin="normal"
                                     type="text"
+                                    onKeyPress={this.newFeatureHandleKeyPress}
                                 />
                                 <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                     <AddIcon className={classes.button} onClick={this.addFeature}/>
