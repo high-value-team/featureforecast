@@ -19,6 +19,7 @@ const styles = theme => ({
         paddingTop: '10px',
         paddingLeft: '30px',
         paddingBottom: '30px',
+        opacity: '0.9',
     },
     orderedList: {
         // listStyleType: 'none',

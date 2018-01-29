@@ -21,6 +21,7 @@ const styles = theme => ({
         paddingLeft: '30px',
         paddingBottom: '30px',
         paddingRight: '50px',
+        opacity: '0.9',
     },
     container: {
     },
