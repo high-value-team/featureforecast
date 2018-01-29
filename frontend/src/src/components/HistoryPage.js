@@ -10,6 +10,8 @@ import { FormControl, FormHelperText } from 'material-ui/Form';
 import RemoveIcon from 'material-ui-icons/Remove';
 import AddIcon from 'material-ui-icons/Add';
 
+import HistoricalDataTable from './HistoricalDataTable';
+
 const styles = theme => ({
     root: {
         fontFamily: 'Roboto, sans-serif',
@@ -260,21 +262,15 @@ class HistoryPage extends React.Component {
 
                     <div>
                         <Button raised={true} color="primary" className={classes.submitButton} onClick={this.onSubmit}>
-                            Historical data
+                            Calculate Forecast
                         </Button>
                     </div>
 
-                    <Typography type="title" color="inherit" style={{fontWeight: 'bold', marginTop:'40px', color:'#0000008a'}}>
-                        Features to forecast:
-                    </Typography>
-
-                    <Typography type="title" style={{color: '#0000008a', marginTop: '30px', marginRight: '10px'}}>
+                    <Typography type="title" style={{color: '#0000008a', marginTop: '100px', marginRight: '10px'}}>
                         {this.props.historicalData.length} data points
                     </Typography>
 
-                    <div>
-                        {JSON.stringify(this.props.historicalData, null, 2)}
-                    </div>
+                    <HistoricalDataTable data={this.props.historicalData} />
                 </Paper>
             </div>
         );
