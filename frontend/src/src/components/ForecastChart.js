@@ -27,7 +27,6 @@ class ForecastChart extends React.Component {
         }
 
         const data = [['Probability', 'Count', {role: 'annotation'}], ...chartData];
-        // console.log(`data:${JSON.stringify(data, null, 2)}`);
 
         return (
             <Chart
@@ -39,7 +38,9 @@ class ForecastChart extends React.Component {
                     orientation: 'horizontal',
                     legend: {position: 'none'},
                     colors: ['#b0120a', '#ffab91'],
-                    bar: {groupWidth: "95%"},
+                    bar: {
+                        groupWidth: '95%'
+                    },
                     hAxis: {
                         title: 'Probability',
                         minValue: 0

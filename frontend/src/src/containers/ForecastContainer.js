@@ -78,12 +78,9 @@ class ForecastContainer extends React.Component {
         return (
             <div className={classes.root}>
                 <Typography type="headline" color="inherit" style={{fontWeight:'bold', margin:'15px', marginLeft: '20px', color:'#0000008a'}}>
-                    Project Created
+                    Forecast
                 </Typography>
                 <Paper className={classes.paper} elevation={4}>
-                    <Typography type="title" style={{color: '#0000008a', marginTop: '30px', marginRight: '10px'}}>
-                        History: {this.props.name}
-                    </Typography>
                     <Typography type="title" style={{color: '#0000008a', marginTop: '30px', marginBottom: '0px', marginRight: '10px'}}>
                         Features
                     </Typography>

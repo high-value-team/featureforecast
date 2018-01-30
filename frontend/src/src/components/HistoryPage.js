@@ -92,7 +92,8 @@ class HistoryPage extends React.Component {
         this.removeFeature = this.removeFeature.bind(this);
         this.updateQuantity = this.updateQuantity.bind(this);
         this.updateTags = this.updateTags.bind(this);
-        this.newFeatureHandleKeyPress = this.newFeatureHandleKeyPress.bind(this);
+        this.newTagsHandleKeyPress = this.newTagsHandleKeyPress.bind(this);
+        this.newQuantityHandleKeyPress = this.newQuantityHandleKeyPress.bind(this);
     }
 
     parseExpirationDate(date) {
@@ -181,7 +182,14 @@ class HistoryPage extends React.Component {
         this.setState({features: features});
     }
 
-    newFeatureHandleKeyPress (e) {
+
+    newTagsHandleKeyPress (e) {
+        if (e.key === 'Enter') {
+            this.newFeatureQuantityField.focus();
+        }
+    }
+
+    newQuantityHandleKeyPress (e) {
         if (e.key === 'Enter') {
             this.addFeature();
         }
@@ -195,9 +203,6 @@ class HistoryPage extends React.Component {
         return (
             <div className={classes.root}>
                 <Paper className={classes.paper} elevation={4}>
-                    <Typography type="title" style={{color: '#0000008a', marginTop: '30px', marginRight: '10px'}}>
-                        History: {this.props.name}
-                    </Typography>
                     <Typography type="title" style={{color: '#0000008a', marginTop: '10px', marginBottom: '20px', marginRight: '10px'}}>
                         Expiration Date: {this.parseExpirationDate(this.props.expirationDate)}
                     </Typography>
@@ -244,6 +249,7 @@ class HistoryPage extends React.Component {
                                         margin="normal"
                                         type="text"
                                         inputRef={ field => this.newFeatureTagField = field }
+                                        onKeyPress={this.newTagsHandleKeyPress}
                                     />
                                     {this.state.featuresError ? <FormHelperText id="features-error-text" style={{marginTop:'0px'}}>{this.state.featuresError}</FormHelperText> : null }
                                 </FormControl>
@@ -254,7 +260,8 @@ class HistoryPage extends React.Component {
                                     onChange={(e)=> this.setState({newFeatureQuantity: e.target.value})}
                                     margin="normal"
                                     type="text"
-                                    onKeyPress={this.newFeatureHandleKeyPress}
+                                    inputRef={ field => this.newFeatureQuantityField = field }
+                                    onKeyPress={this.newQuantityHandleKeyPress}
                                 />
                                 <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                     <AddIcon className={classes.button} onClick={this.addFeature}/>
