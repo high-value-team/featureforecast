@@ -56,7 +56,7 @@ class MainContainer extends React.Component {
 
     render () {
         const { classes } = this.props;
-        const title = `FeatureForecast ${this.props.name.length === 0 ? '' : ' - ' + this.props.name}`;
+        const title = `${this.props.name.length === 0 ? '' : ' - ' + this.props.name}`;
         return (
             <div className={classes.container}>
                 <Navigation title={title}/>

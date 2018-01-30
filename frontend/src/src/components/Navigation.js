@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
+import { Link } from 'react-router';
 
 const styles = theme => ({
     root: {
@@ -25,7 +26,7 @@ function Navigation ({title, classes}) {
             <AppBar position="static">
                 <Toolbar>
                     <Typography type="display1" color="inherit" className={classes.flex}>
-                        {title}
+                        <Link to={"/"} style={{color:"white", textDecoration: "none" }}>FeatureForecast</Link> {title}
                     </Typography>
                 </Toolbar>
             </AppBar>
