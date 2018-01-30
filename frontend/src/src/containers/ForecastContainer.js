@@ -30,8 +30,17 @@ const styles = theme => ({
         paddingLeft: '0px',
         // padding: '0px'
     },
+    unorderedList: {
+        // listStyleType: 'none',
+        // padding: '10px',
+        color: '#0000008a',
+        listStylePosition: 'inside',
+        marginLeft: '0px',
+        paddingLeft: '0px',
+        // padding: '0px'
+    },
     listItem: {
-        paddingBottom: '15px',
+        paddingBottom: '5px',
     },
 });
 
@@ -85,11 +94,11 @@ class ForecastContainer extends React.Component {
                         Features
                     </Typography>
 
-                    <ol className={classes.orderedList}>
+                    <ul className={classes.unorderedList}>
                         {this.props.features.map( (feature, index) => {
-                            return <li key={`feature-${index}`} className={classes.listItem}>quantity:{feature.quantity} tags:{JSON.stringify(feature.tags)}</li>
+                            return <li key={`feature-${index}`} className={classes.listItem}>{feature.quantity} x {feature.tags.join(",")}</li>
                         })}
-                    </ol>
+                    </ul>
 
                     <ForecastChart distribution={this.props.distribution} />
 
