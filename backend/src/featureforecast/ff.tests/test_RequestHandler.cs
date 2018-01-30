@@ -62,8 +62,8 @@ namespace ff.tests
                                                           new FeatureDto {Quantity = 1, Tags = new[] {"b"}},
                                                   });
             
-            Assert.AreEqual(NUMBER_OF_SIMULATIONS, forecast.Distribution.Select(p => p.Count).Sum());
-            Assert.AreEqual(GRANULARITY_OF_FORECAST, forecast.Distribution.Length);
+            // only prognosises with p>=0.5
+            Assert.IsTrue(forecast.Distribution.Select(p => p.Count).Sum() >= 500);
         }
     }
 }

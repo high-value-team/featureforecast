@@ -43,7 +43,12 @@ class ForecastChart extends React.Component {
                     },
                     hAxis: {
                         title: 'Probability',
-                        minValue: 0
+                        minValue: 0,
+                        viewWindow: {
+                            min: 0.5,
+                            max: 1.0
+                        },
+                        ticks: [0.5, 0.67, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
                     },
                     vAxis: {
                         title: 'Count',

@@ -64,16 +64,26 @@ namespace ff.service
             Update_lastused(history);
             
             var forecast = _forecasting.Calculate(history.HistoricalData, Map_features());
+            var limitedForecast = Limit_to_range(forecast, 0.5f, 1.0f);
 
             return new ForecastDto {
                 Id = history.Id,
-                Distribution = forecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto {
-                                                                            Prognosis = d.Prognosis, 
-                                                                            Count = d.Count,
-                                                                            CummulatedProbability = d.CummulatedProbability
-                                                                        }).ToArray(),
+                Distribution = limitedForecast.Distribution.Select(d => new ForecastDto.PossibleOutcomeDto {
+                                                                                Prognosis = d.Prognosis, 
+                                                                                Count = d.Count,
+                                                                                CummulatedProbability = d.CummulatedProbability
+                                                                            }).ToArray(),
             };
 
+
+            Forecast Limit_to_range(Forecast unlimitedForecast, float pMin, float pMax) {
+                return new Forecast {
+                    Features = unlimitedForecast.Features,
+                    Distribution = unlimitedForecast.Distribution.Where(e => pMin <= e.CummulatedProbability && 
+                                                                             e.CummulatedProbability <= pMax)
+                                                                 .ToArray()
+                };
+            }
             
             Feature[] Map_features()
                 => features.Select(f => new Feature {Tags = f.Tags, Quantity = f.Quantity}).ToArray();
