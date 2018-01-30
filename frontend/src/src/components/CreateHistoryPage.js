@@ -89,7 +89,8 @@ class CreateHistoryPage extends React.Component {
         this.addItem = this.addItem.bind(this);
         this.updateValue = this.updateValue.bind(this);
         this.updateTags = this.updateTags.bind(this);
-        this.newItemHandleKeyPress = this.newItemHandleKeyPress.bind(this);
+        this.newValueKeyPress = this.newValueKeyPress.bind(this);
+        this.newTagsKeyPress = this.newTagsKeyPress.bind(this);
     }
 
     onSubmit () {
@@ -206,7 +207,13 @@ class CreateHistoryPage extends React.Component {
         this.setState({historicalDataItems: items});
     }
 
-    newItemHandleKeyPress (e) {
+    newValueKeyPress (e) {
+        if (e.key === 'Enter') {
+            this.newItemTagsField.focus();
+        }
+    }
+
+    newTagsKeyPress (e) {
         if (e.key === 'Enter') {
             this.addItem();
         }
@@ -293,6 +300,7 @@ class CreateHistoryPage extends React.Component {
                                     onChange={(e)=> this.setState({newItemValue: e.target.value})}
                                     margin="normal"
                                     type="text"
+                                    onKeyPress={this.newValueKeyPress}
                                     inputRef={ field => this.newItemValueField = field }
                                 />
                                 <TextField
@@ -302,7 +310,8 @@ class CreateHistoryPage extends React.Component {
                                     onChange={(e)=> this.setState({newItemTags: e.target.value})}
                                     margin="normal"
                                     type="text"
-                                    onKeyPress={this.newItemHandleKeyPress}
+                                    onKeyPress={this.newTagsKeyPress}
+                                    inputRef={ field => this.newItemTagsField = field }
                                 />
                                 <div className={[classes.buttonWrap, classes.col].join(' ')}>
                                     <AddIcon className={classes.button} onClick={this.addItem}/>
