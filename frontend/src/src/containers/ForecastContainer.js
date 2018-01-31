@@ -8,7 +8,8 @@ import {withStyles} from "material-ui/styles/index";
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import ForecastChart from '../components/ForecastChart';
+import ForecastChart_p_vs_count from '../components/ForecastChart_p_vs_count';
+import ForecastChart_p_vs_prognosis from '../components/ForecastChart_p_vs_prognosis';
 
 const styles = theme => ({
     root: {
@@ -100,7 +101,8 @@ class ForecastContainer extends React.Component {
                         })}
                     </ul>
 
-                    <ForecastChart distribution={this.props.distribution} />
+                    <ForecastChart_p_vs_count distribution={this.props.distribution} />
+                    <ForecastChart_p_vs_prognosis distribution={this.props.distribution} />
 
                     <div style={{marginTop:'50px'}}>
                         <Button raised={true} color="primary" onClick={this.onBack}>

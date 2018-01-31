@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e5d8149-3968-48b3-a3c2-210cfd539eb5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.featureforecast/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.featureforecast/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ff.server/Properties/AssemblyInfo.cs" afterPath="$PROJECT_DIR$/ff.server/Properties/AssemblyInfo.cs" />
-      <change beforePath="$PROJECT_DIR$/ff.service_project/RequestHandler.cs" afterPath="$PROJECT_DIR$/ff.service_project/RequestHandler.cs" />
-      <change beforePath="$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" afterPath="$PROJECT_DIR$/ff.tests/test_RequestHandler.cs" />
-      <change beforePath="$PROJECT_DIR$/../../../banner/FeatureForecast.pxm" afterPath="$PROJECT_DIR$/../../../banner/FeatureForecast.pxm" />
-    </list>
+    <list default="true" id="0e5d8149-3968-48b3-a3c2-210cfd539eb5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -398,12 +392,12 @@
       <workItem from="1517051136532" duration="605000" />
       <workItem from="1517131342606" duration="2259000" />
       <workItem from="1517244345656" duration="588000" />
-      <workItem from="1517337572474" duration="490000" />
+      <workItem from="1517337572474" duration="1080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65846000" />
+    <option name="totallyTimeSpent" value="66436000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
