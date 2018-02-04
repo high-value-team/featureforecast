@@ -109,6 +109,7 @@ export function loadHistory(projectID) {
                     name: body.name,
                     email: body.email,
                     historicalData: body.historicalData,
+                    tags: body.tags,
                     expirationDate: body.expirationDate,
                 });
             })
@@ -147,6 +148,7 @@ const initialState = {
     name: '',
     email: '',
     historicalData: [],
+    tags: [],
     expirationDate: '',
     version: '',
     distribution: [],
@@ -173,6 +175,7 @@ export default function project (state = initialState, action) {
                 name: action.name,
                 email: action.email,
                 historicalData: action.historicalData,
+                tags: action.tags,
                 expirationDate: action.expirationDate,
             };
         case NEW_FORECAST:

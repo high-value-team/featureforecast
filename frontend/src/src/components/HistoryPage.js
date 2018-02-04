@@ -67,6 +67,7 @@ class HistoryPage extends React.Component {
         name: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
         historicalData: PropTypes.array.isRequired,
+        tags: PropTypes.array.isRequired,
         expirationDate: PropTypes.string.isRequired,
         features: PropTypes.array.isRequired,
     };
@@ -276,7 +277,11 @@ class HistoryPage extends React.Component {
                         </Button>
                     </div>
 
-                    <Typography type="title" style={{color: '#0000008a', marginTop: '100px', marginRight: '10px'}}>
+                    <Typography type="title" style={{color: '#0000008a', marginTop: '60px', marginRight: '10px'}}>
+                        Tags used in historical data: {this.props.tags.join(", ")}
+                    </Typography>
+
+                    <Typography type="title" style={{color: '#0000008a', marginTop: '10px', marginRight: '10px'}}>
                         {this.props.historicalData.length} data points
                     </Typography>
 

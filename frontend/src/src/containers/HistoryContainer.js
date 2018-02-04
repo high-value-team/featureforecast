@@ -13,6 +13,7 @@ class HistoryContainer extends React.Component {
         name: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
         historicalData: PropTypes.array.isRequired,
+        tags: PropTypes.array.isRequired,
         expirationDate: PropTypes.string.isRequired,
         features: PropTypes.array.isRequired,
     };
@@ -43,6 +44,7 @@ function mapStateToProps (state, props) {
         name: state.project.name,
         email: state.project.email,
         historicalData: state.project.historicalData,
+        tags: state.project.tags,
         expirationDate: state.project.expirationDate,
         features: state.project.features,
     };
