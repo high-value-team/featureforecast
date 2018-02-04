@@ -48,7 +48,8 @@ namespace ff.service
                 Id = history.Id,
                 Email = history.Email,
                 Name = history.Name,
-                HistoricalData = history.HistoricalData.Select(d => new DatapointDto{Value=d.Value,Tags = d.Tags}).ToArray()
+                HistoricalData = history.HistoricalData.Select(d => new DatapointDto{Value=d.Value,Tags = d.Tags}).ToArray(),
+                Tags = history.Compile_tags()
             };
         }
         

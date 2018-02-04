@@ -7,6 +7,7 @@ namespace ff.service.data.dto
         public string Name;
         public string Email;
         public DatapointDto[] HistoricalData;
+        public string[] Tags;
         public DateTime ExpirationDate;
     }
 }

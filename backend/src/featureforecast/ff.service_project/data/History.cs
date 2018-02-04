@@ -11,12 +11,18 @@ namespace ff.service.data
         public Datapoint[] HistoricalData;
         public DateTime LastUsed;
 
+        public string[] Compile_tags() => HistoricalData.SelectMany(dp => dp.Tags)
+                                                        .Select(t => t.ToLower())
+                                                        .Distinct()
+                                                        .OrderBy(t => t)
+                                                        .ToArray();
+
         public class Datapoint {
             public float Value;
             public string[] Tags;
         }
     }
-    
+      
     
     internal static class DatapointExtensions
     {

@@ -51,6 +51,7 @@ namespace ff.tests
             
             Assert.AreEqual("test history", history.Name);
             Assert.AreEqual(11, history.HistoricalData.Length);
+            Assert.AreEqual(new[]{"a", "b", "x"}, history.Tags);
 
             history = sut.Load_history_by_name("test history");
             

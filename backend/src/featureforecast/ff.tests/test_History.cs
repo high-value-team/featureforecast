@@ -7,6 +7,29 @@ namespace ff.tests
     [TestFixture]
     public class test_History
     {
+        [Test]
+        public void Compile_tags()
+        {
+            var sut = new History
+            {
+                HistoricalData = new[] {
+                    new History.Datapoint{Value=1f, Tags=new[]{"D","b"}}, 
+                    new History.Datapoint{Value=1f, Tags=new[]{"e","c"}}, 
+                    new History.Datapoint{Value=1f, Tags=new[]{"d"}},
+                    new History.Datapoint{Value=1f, Tags=new[]{"a","e","b"}},
+                    new History.Datapoint{Value=1f, Tags=new string[0]} 
+                }
+            };
+
+            var result = sut.Compile_tags();
+            
+            Assert.AreEqual(new[]{"a","b","c","d","e"}, result);
+        }
+    }
+    
+    [TestFixture]
+    public class test_History_extensions
+    {
         private History.Datapoint[] _datapoints;
         
         [SetUp]
