@@ -51,7 +51,7 @@ class MainContainer extends React.Component {
         }
         const v = JSON.parse(version);
         const date = new Date(v.timestamp);
-        return `version: ${v.number} time: ${this.pad(date.getHours())}:${this.pad(date.getMinutes())}:${this.pad(date.getSeconds())}`;
+        return `Backend version: ${v.number}, ${this.pad(date.getHours())}:${this.pad(date.getMinutes())}:${this.pad(date.getSeconds())}`;
     }
 
     render () {
@@ -62,7 +62,7 @@ class MainContainer extends React.Component {
                 <Navigation title={title}/>
                 <div className={classes.innerContainer}>
                     {this.props.children}
-                    <p style={{color: '#0000008a', fontSize:'10px',}}>{this.formatVersion(this.props.version)}</p>
+                    <span style={{color: '#0000008a', fontSize:'10px',}}>{this.formatVersion(this.props.version)} - Brought to you by <a href="http://ccd-school.de" target="_blank">ccd-school.de</a></span>
                 </div>
             </div>
         );
