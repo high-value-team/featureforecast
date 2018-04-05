@@ -6,7 +6,7 @@ import {NODE_ENV, API_ROOT} from "../Config";
 import { withStyles } from 'material-ui/styles';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
-import * as boxActionCreators from "../redux/project";
+import * as boxActionCreators from "../Redux";
 
 const styles = theme => ({
     container: {

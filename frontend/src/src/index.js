@@ -10,7 +10,7 @@ import Theme from './Theme'
 import getRoutes from './Routes';
 import Reboot from 'material-ui/Reboot';
 
-import project from './redux/project'; // TODO use index.js to include all reducers in one place
+import project from './Redux'; // TODO use index.js to include all reducers in one place
 
 const store = createStore(combineReducers({project, routing: routerReducer}), compose(
     applyMiddleware(thunk),

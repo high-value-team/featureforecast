@@ -2,7 +2,7 @@ import React from 'react';
 import HistoryPage from '../components/HistoryPage';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as boxActionCreators from '../redux/project';
+import * as boxActionCreators from '../Redux';
 import PropTypes from 'prop-types';
 import Typography from 'material-ui/Typography';
 
