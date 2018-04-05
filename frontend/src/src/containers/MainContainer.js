@@ -23,12 +23,9 @@ class MainContainer extends React.Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
         loadVersion: PropTypes.func.isRequired,
+        name: PropTypes.string.isRequired,
         version: PropTypes.string.isRequired,
         children: PropTypes.node,
-    };
-
-    static contextTypes = {
-        router: PropTypes.object.isRequired,
     };
 
     componentDidMount() {
@@ -62,7 +59,7 @@ class MainContainer extends React.Component {
                 <Navigation title={title}/>
                 <div className={classes.innerContainer}>
                     {this.props.children}
-                    <span style={{color: '#0000008a', fontSize:'10px',}}>{this.formatVersion(this.props.version)} - Brought to you by <a href="http://ccd-school.de" target="_blank">ccd-school.de</a></span>
+                    <span style={{color: '#0000008a', fontSize:'10px',}}>{this.formatVersion(this.props.version)} - Brought to you by <a href="http://ccd-school.de" target="_blank" rel="noopener noreferrer">ccd-school.de</a></span>
                 </div>
             </div>
         );
@@ -81,6 +78,8 @@ export default withStyles(styles)(connect(
     mapStateToProps,
     mapDispatchToProps,
 )(MainContainer));
+
+export const MainContainerUnwrapped = MainContainer;
 
 
 

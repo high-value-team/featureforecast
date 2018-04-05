@@ -28,11 +28,18 @@
     "deploy": "cd ../deploy && sh deploy-dropstack.sh",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "concurrently --kill-others-on-fail \"nodemon server.js\" \"react-scripts start\""
+    "cosmos": "cosmos",
+    "cosmos:export": "cosmos-export"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
     "express": "^4.16.2",
-    "query-string": "^5.0.1"
+    "query-string": "^5.0.1",
+    "react-cosmos": "^4.0.0-beta.1",
+    "react-cosmos-context-proxy": "^4.0.0-beta.1",
+    "react-cosmos-fetch-proxy": "^4.0.0-beta.1",
+    "react-cosmos-redux-proxy": "^4.0.0-beta.1",
+    "react-cosmos-router-proxy": "^4.0.0-beta.1",
+    "redux-devtools-extension": "^2.13.2"
   }
 }

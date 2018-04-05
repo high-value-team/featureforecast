@@ -8,8 +8,8 @@ import {withStyles} from "material-ui/styles/index";
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import ForecastChart_p_vs_count from '../components/ForecastChart_p_vs_count';
-import ForecastChart_p_vs_prognosis from '../components/ForecastChart_p_vs_prognosis';
+import ForecastChartCount from '../components/ForecastChartCount';
+import ForecastChartPrognosis from '../components/ForecastChartPrognosis';
 
 const styles = theme => ({
     root: {
@@ -48,7 +48,6 @@ const styles = theme => ({
 class ForecastContainer extends React.Component {
 
     static propTypes = {
-        router: PropTypes.object.isRequired,
         calculateForecast: PropTypes.func.isRequired,
         goBack: PropTypes.func.isRequired,
         goBackAndReset: PropTypes.func.isRequired,
@@ -57,10 +56,6 @@ class ForecastContainer extends React.Component {
         name: PropTypes.string.isRequired,
         features: PropTypes.array.isRequired,
         distribution: PropTypes.array.isRequired,
-    };
-
-    static contextTypes = {
-        router: PropTypes.object.isRequired,
     };
 
     constructor(props) {
@@ -101,8 +96,8 @@ class ForecastContainer extends React.Component {
                         })}
                     </ul>
 
-                    <ForecastChart_p_vs_count distribution={this.props.distribution} />
-                    <ForecastChart_p_vs_prognosis distribution={this.props.distribution} />
+                    <ForecastChartCount distribution={this.props.distribution} />
+                    <ForecastChartPrognosis distribution={this.props.distribution} />
 
                     <div style={{marginTop:'50px'}}>
                         <Button raised={true} color="primary" onClick={this.onBack}>

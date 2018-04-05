@@ -11,7 +11,7 @@ const styles = theme => ({
     },
 });
 
-class ForecastChart_p_vs_count extends React.Component {
+class ForecastChartCount extends React.Component {
 
     static propTypes = {
         distribution: PropTypes.array.isRequired,
@@ -63,6 +63,6 @@ class ForecastChart_p_vs_count extends React.Component {
     }
 }
 
-export default withStyles(styles)(ForecastChart_p_vs_count);
+export default withStyles(styles)(ForecastChartCount);
 
 

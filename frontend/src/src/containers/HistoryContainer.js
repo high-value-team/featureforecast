@@ -18,10 +18,6 @@ class HistoryContainer extends React.Component {
         features: PropTypes.array.isRequired,
     };
 
-    static contextTypes = {
-        router: PropTypes.object.isRequired,
-    };
-
     componentDidMount() {
         this.props.loadHistory(this.props.projectID);
     }

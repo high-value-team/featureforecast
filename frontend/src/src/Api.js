@@ -50,7 +50,7 @@ export function calculateForecast(projectID, features) {
                     resolve(body.distribution);
                 });
             } else {
-                console.warn(`createProject():${JSON.stringify(resp, null, 2)}`);
+                console.warn(`calculateForecast():${JSON.stringify(resp, null, 2)}`);
                 reject(`API endpoint failed: resp: ${JSON.stringify(resp, null, 2)}`);
             }
         }).catch(err => {

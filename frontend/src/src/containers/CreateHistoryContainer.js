@@ -9,12 +9,7 @@ import Typography from 'material-ui/Typography';
 class CreateHistoryContainer extends React.Component {
 
     static propTypes = {
-        router: PropTypes.object.isRequired,
         submitHistory: PropTypes.func.isRequired,
-    };
-
-    static contextTypes = {
-        router: PropTypes.object.isRequired,
     };
 
     render () {

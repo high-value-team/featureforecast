@@ -1,6 +1,7 @@
 import 'react-redux'
 import { browserHistory } from 'react-router'
 import * as api from './Api'
+import {COSMOS} from './Config'
 
 //
 // actions constants
@@ -26,7 +27,7 @@ function newID(projectID) {
     }
 }
 
-export function newForecast(projectID, distribution) {
+function newForecast(projectID, distribution) {
     return {
         type: NEW_FORECAST,
         projectID: projectID,
@@ -34,14 +35,14 @@ export function newForecast(projectID, distribution) {
     }
 }
 
-export function resetFeatures() {
+function resetFeatures() {
     return {
         type: RESET_FEATURES,
         features: [],
     }
 }
 
-export function setFeatures(features) {
+function setFeatures(features) {
     return {
         type: SET_FEATURES,
         features: features,
@@ -52,20 +53,20 @@ export function setFeatures(features) {
 // action creators
 //
 
-export function goBack() {
+function goBack() {
     return function(dispatch) {
         browserHistory.goBack();
     }
 }
 
-export function goBackAndReset() {
+function goBackAndReset() {
     return function(dispatch) {
         dispatch(resetFeatures());
         browserHistory.goBack();
     }
 }
 
-export function submitHistory(project) {
+function submitHistory(project) {
     return function (dispatch) {
         console.log("project:"+ project);
         api.createHistory(project)
@@ -79,14 +80,14 @@ export function submitHistory(project) {
     };
 }
 
-export function generateForecastQueryAndRedirect(projectID, features) {
+function generateForecastQueryAndRedirect(projectID, features) {
     return function(dispatch) {
         dispatch(setFeatures(features));
         browserHistory.push(`/${projectID}/forecast?features=${JSON.stringify(features)}`);
     }
 }
 
-export function calculateForecast(projectID, features) {
+function calculateForecast(projectID, features) {
     return function(dispatch) {
         dispatch(setFeatures(features));
         api.calculateForecast(projectID, features)
@@ -99,7 +100,7 @@ export function calculateForecast(projectID, features) {
     }
 }
 
-export function loadHistory(projectID) {
+function loadHistory(projectID) {
     return function(dispatch) {
         api.loadHistory(projectID)
             .then((body) => {
@@ -119,7 +120,7 @@ export function loadHistory(projectID) {
     }
 }
 
-export function loadVersion() {
+function loadVersion() {
     return function(dispatch) {
         api.getVersion()
             .then((version) => {
@@ -155,7 +156,7 @@ const initialState = {
     features: [],
 };
 
-export default function project (state = initialState, action) {
+function project (state = initialState, action) {
     switch (action.type) {
         case CREATE_HISTORY :
             return {
@@ -203,3 +204,31 @@ export default function project (state = initialState, action) {
             return state;
     }
 }
+
+
+if (COSMOS) {
+    // eslint-disable-next-line no-func-assign
+    goBack = undefined;
+    // eslint-disable-next-line no-func-assign
+    goBackAndReset = undefined;
+    // eslint-disable-next-line no-func-assign
+    submitHistory = undefined;
+    // eslint-disable-next-line no-func-assign
+    calculateForecast = undefined;
+    // eslint-disable-next-line no-func-assign
+    loadHistory = undefined;
+    // eslint-disable-next-line no-func-assign
+    generateForecastQueryAndRedirect = undefined;
+}
+
+export {
+    goBack,
+    goBackAndReset,
+    submitHistory,
+    generateForecastQueryAndRedirect,
+    calculateForecast,
+    loadHistory,
+    loadVersion,
+};
+
+export default project;
