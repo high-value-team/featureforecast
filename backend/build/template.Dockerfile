@@ -1,0 +1,6 @@
+FROM mono
+WORKDIR /featureforecast-backend
+ADD . .
+ENV FEATUREFORECAST_BACKEND_DATABASEPATH=/mnt
+EXPOSE 80
+ENTRYPOINT mono ff.server.exe
