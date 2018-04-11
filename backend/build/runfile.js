@@ -78,6 +78,7 @@ function stop () {
     }
     console.log();
 }
+help(stop, 'Stop running backend in docker container');
 
 function deploy () {
     const binPath = findNewestBinFolder();
