@@ -63,21 +63,21 @@ EOF`;
 help(start, 'Start backend in docker container. Please execute "run stop" to manually stop the container!');
 
 function stop () {
-    console.log(`checking if 'featureforecast-backend'-container is running`);
-    let containerID = run(`docker ps --filter "name=featureforecast-backend" --format "{{.ID}}"`, {stdio: 'pipe'});
+    const containerName = 'featureforecast-backend';
+    console.log(`checking if '${containerName}'-container is running`);
+    let containerID = run(`docker ps --filter "name=${containerName}" --format "{{.ID}}"`, {stdio: 'pipe'});
     if (containerID.length !== 0) {
-        run(`docker kill featureforecast-backend`);
+        run(`docker kill ${containerName}`);
     }
     console.log();
 
-    console.log(`checking if 'featureforecast-backend'-container exists`);
-    containerID = run(`docker ps --all --filter "name=featureforecast-backend" --format "{{.ID}}"`, {stdio: 'pipe'});
+    console.log(`checking if '${containerName}'-container exists`);
+    containerID = run(`docker ps --all --filter "name=${containerName}" --format "{{.ID}}"`, {stdio: 'pipe'});
     if (containerID.length !== 0) {
-        run(`docker rm featureforecast-backend`);
+        run(`docker rm ${containerName}`);
     }
     console.log();
 }
-help(stop, 'Stop running backend in docker container');
 
 function deploy () {
     const binPath = findNewestBinFolder();
