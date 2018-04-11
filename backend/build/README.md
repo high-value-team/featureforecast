@@ -36,3 +36,13 @@ clean:deploy                    - Remove all "deploy" folders
 ```
 
 Execute `run` to list all available tasks
+
+
+## room for improvement
+
+Currently when starting a docker container with `run start` the container is not terminated on CTRL-C. The node process is terminated, but the container still runs in the background and blocks the given http-port (e.g. localhost:8080).
+The docker container needs to be manually killed, just do the following:
+```
+docker ps
+docker kill featureforecast-backend
+```
