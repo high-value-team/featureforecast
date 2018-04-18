@@ -1,0 +1,11 @@
+version: "v1"
+project: "featureforecast-backend"
+services:
+  a:
+    b:
+      image: hvt1/featureforecast-backend
+      domain: "featureforecast-backend.sloppy.zone"
+      ports: 80
+      env:
+        - FEATUREFORECAST_BACKEND_DATABASEPATH: "/mnt"
+      mem: 64

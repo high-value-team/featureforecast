@@ -2,13 +2,29 @@ const { help, run } = require('runjs');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const fs = require('fs');
+var chalk = require('chalk');
+const { SilentLogger } = require('runjs/lib/common');
 
 //
-// tasks
+// decorators
+//
+
+function runSilent(command, options = {}) {
+    run(command, options, new SilentLogger());
+}
+
+//
+// setup
 //
 
 function setup() {
-    const envFiles = ['env.dropstack'];
+    let envFiles = [];
+    fs.readdirSync('setup').forEach(file => {
+        if (file.startsWith('env.')) {
+            envFiles.push(file);
+        }
+    });
+
     let allEnvFilesExist = true;
     envFiles.forEach((filename) => {
         if (!fs.existsSync(filename)) {
@@ -22,47 +38,66 @@ function setup() {
 
     envFiles.forEach((filename) => {
         if (!fs.existsSync(filename)) {
-            run(`cp examples/${filename} .`);
+            run(`cp setup/${filename} .`);
             console.log(`Please edit this file!`)
         }
     });
 }
-help(setup, 'Create environment files, e.g. env.dropstack. Please edit files with useful values!');
+help(setup, 'Create environment files, e.g. env.production. Please edit files with useful values!');
 
-function build () {
+function install() {
+    // TODO install C# packages
+    // Currently done by opening the project with Jebrains Rider (will automatically load dependencies)
+    console.log("NOT IMPLEMENTED");
+}
+help(install, 'Install all dependencies in "src" folder');
+
+
+//
+// docker
+//
+
+function docker_build () {
+    const imageName = 'hvt1/featureforecast-backend';
     const srcDir = `${__dirname}/../src`;
-    const binDir = `${__dirname}/bin.${timestamp()}`;
+    const binDir = `${__dirname}/docker.${timestamp()}`;
 
     // create bin folder
-    run(`mkdir -p ${binDir}`);
-    run(`mkdir -p ${binDir}/db`);
+    run(`mkdir -p ${binDir}/app/db`);
 
-    const buildBackend = `docker run -i -v ${binDir}:/binDir -v ${srcDir}:/srcDir mono sh << EOF 
+    try {
+        run(`docker run -i -v ${binDir}/app:/binDir -v ${srcDir}:/srcDir mono sh << EOF 
 msbuild /p:OutDir=/binDir /srcDir/featureforecast/featureforecast.sln
-EOF
-`;
-    run(buildBackend);
-}
-help(build, 'Run backend build scripts');
+EOF`);
+    } catch (error) {
+        console.log(chalk.red('FAILED!\n'));
+    }
 
-function start () {
-    const binPath = findNewestBinFolder();
-    if (binPath === undefined) {
-        console.log('No bin-folder found. Please execute a "build" job first!');
+    // create Dockerfile
+    const dockerfile = fs.readFileSync('template.docker.Dockerfile', 'utf8');
+    fs.writeFileSync(`${binDir}/Dockerfile`, dockerfile);
+
+    // build docker image
+    run(`docker build --tag ${imageName} ${binDir}`);
+}
+help(docker_build, 'Run backend build scripts');
+
+function docker_start () {
+    const localURL = `127.0.0.1:9031`;
+    const imageName = 'hvt1/featureforecast-backend';
+    const containerName = 'featureforecast-backend';
+
+    const isRunning = checkIsRunning(containerName);
+    if (isRunning) {
+        console.log(`The docker container '${containerName}' is already running. Make sure to stop it! ('run docker:stop')`);
         return
     }
 
-    stop();
-
-    console.log("starting backend in docker container")
-    const startBackend = `docker run --name=featureforecast-backend --interactive --env FEATUREFORECAST_BACKEND_DATABASEPATH=/mnt --publish "127.0.0.1:8080:80" --volume ${binPath}:/workdir mono sh << EOF
-mono /workdir/ff.server.exe
-EOF`;
-    run(startBackend);
+    run(`docker run --name=${containerName} --publish "${localURL}:80" ${imageName}`);
 }
-help(start, 'Start backend in docker container. Please execute "run stop" to manually stop the container!');
+help(docker_start, 'Start backend in docker container. Please execute "run stop" to manually stop the container!');
 
-function stop () {
+function docker_stop () {
     const containerName = 'featureforecast-backend';
     console.log(`checking if '${containerName}'-container is running`);
     let containerID = run(`docker ps --filter "name=${containerName}" --format "{{.ID}}"`, {stdio: 'pipe'});
@@ -78,56 +113,133 @@ function stop () {
     }
     console.log();
 }
-help(stop, 'Stop running backend in docker container');
+help(docker_stop, 'Stop docker container');
 
-function deploy () {
-    const binPath = findNewestBinFolder();
-    if (binPath === undefined) {
+//
+// sloppy
+//
+
+function sloppy_publish () {
+    const imageName = 'hvt1/featureforecast-backend';
+    const envFile = 'env.dockerhub';
+    console.log(`using ${envFile}`);
+    const envObj = loadEnvironment(envFile);
+
+    console.log(chalk.bold(`logging into docker hub, hiding command with credentials`));
+    runSilent(`docker login --username ${envObj.USERNAME} --password ${envObj.PASSWORD}`, {stdio: 'pipe'});
+    run(`docker push ${imageName}`);
+}
+help(sloppy_publish, 'Push latest docker build to docker hub');
+
+function sloppy_delete() {
+    const envFile = 'env.sloppy';
+    console.log(`using ${envFile}`);
+    const envObj = loadEnvironment(envFile);
+
+    run(`sloppy delete featureforecast-backend`, {env: envObj});
+}
+help(sloppy_delete, 'Delete existing project on sloppy.zone');
+
+function sloppy_deploy() {
+    const envFile = 'env.sloppy';
+    console.log(`using ${envFile}`);
+    const sloppyEnv = loadEnvironment(envFile);
+
+    const deployDir = `sloppy.${timestamp()}`;
+    run(`mkdir ${deployDir}`);
+
+    run(`cp template.sloppy.yml ${deployDir}/sloppy.yml`);
+
+    run(`sloppy start ${deployDir}/sloppy.yml`, {env: sloppyEnv});
+}
+help(sloppy_deploy, 'Deploy to sloppy.zone');
+
+//
+// dropstack
+//
+
+function dropstack_build () {
+    const srcDir = `${__dirname}/../src`;
+    const binDir = `${__dirname}/dropstack.${timestamp()}`;
+
+    // create dropstack folder
+    run(`mkdir -p ${binDir}`);
+    run(`mkdir -p ${binDir}/app/db`);
+
+    // build executable
+    try {
+        run(`docker run -i -v ${binDir}/app:/binDir -v ${srcDir}:/srcDir mono sh << EOF 
+msbuild /p:OutDir=/binDir /srcDir/featureforecast/featureforecast.sln
+EOF`);
+    } catch (error) {
+        console.log(chalk.red('FAILED!\n'));
+    }
+
+    // create .dropstack.json
+    const dropstackEnv = loadEnvironment('env.dropstack');
+    var dropstackFile = fs.readFileSync('template.dropstack.json', 'utf8');
+    var parsedFile = interpolate(dropstackFile, dropstackEnv);
+    fs.writeFileSync(`${binDir}/.dropstack.json`, parsedFile);
+
+    // create Dockerfile
+    run(`cp template.dropstack.Dockerfile ${binDir}/Dockerfile`);
+}
+help(dropstack_build, 'Create dropstack folder');
+
+function dropstack_deploy () {
+    const binDir = findNewestDropstackFolder();
+    if (binDir === undefined) {
         console.log('No bin-folder found. Please execute a "build" job first!');
         return
     }
 
-    const deployPath = `deploy.${timestamp()}`;
-    const createDeployFolder = `cp -r ${binPath} ${deployPath}`;
-    run(createDeployFolder);
-
-    // create and write .dropstack.json in deploy folder
     const dropstackEnv = loadEnvironment('env.dropstack');
-    var file = fs.readFileSync('template.dropstack.json', 'utf8');
-    var parsedFile = interpolate(file, dropstackEnv);
-    fs.writeFileSync(`${deployPath}/.dropstack.json`, parsedFile);
-
-    // create Dockerfile
-    var dockerfile = fs.readFileSync('template.Dockerfile', 'utf8');
-    fs.writeFileSync(`${deployPath}/Dockerfile`, dockerfile);
-
-    const deployToDropstack = `cd ${deployPath} && dropstack deploy --compress --verbose --alias ${dropstackEnv.DROPSTACK_ALIAS}.cloud.dropstack.run --type mono --stateful --token ${dropstackEnv.DROPSTACK_TOKEN}`;
+    const deployToDropstack = `cd ${binDir} && dropstack deploy --compress --verbose --alias ${dropstackEnv.DROPSTACK_ALIAS}.cloud.dropstack.run --type mono --stateful --token ${dropstackEnv.DROPSTACK_TOKEN}`;
     run(deployToDropstack);
 }
-help(deploy, 'Create deploy folder and deploy to Dropstack');
+help(dropstack_deploy, 'Deploy to dropstack');
 
 
-function clean_build() {
+//
+// clean
+//
+
+function clean_docker() {
     fs.readdirSync('.').forEach(file => {
-        if (fs.statSync(file).isDirectory() && file.match(/^bin\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
+        if (fs.statSync(file).isDirectory() && file.match(/^docker\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
             const removeDirectory = `rm -rf ${file}`;
             run(removeDirectory);
         }
     });
 
 }
-help(clean_build, 'Remove all "bin" folders');
+help(clean_docker, 'Remove all "docker" folders');
 
 
-function clean_deploy() {
+function clean_sloppy() {
     fs.readdirSync('.').forEach(file => {
-        if (fs.statSync(file).isDirectory() && file.match(/^deploy\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
+        if (fs.statSync(file).isDirectory() && file.match(/^sloppy\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
             const removeDirectory = `rm -rf ${file}`;
             run(removeDirectory);
         }
     })
 }
-help(clean_deploy, 'Remove all "deploy" folders');
+help(clean_sloppy, 'Remove all "sloppy" folders');
+
+function clean_dropstack() {
+    fs.readdirSync('.').forEach(file => {
+        if (fs.statSync(file).isDirectory() && file.match(/^dropstack\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
+            const removeDirectory = `rm -rf ${file}`;
+            run(removeDirectory);
+        }
+    })
+}
+help(clean_dropstack, 'Remove all "dropstack" folders');
+
+function clean_install() {
+    console.log("NOT IMPLEMENTED");
+}
+help(clean_install, 'Remove all C# dependencies');
 
 
 //
@@ -164,10 +276,10 @@ function loadEnvironment(envPath) {
     return env.parsed;
 }
 
-function findNewestBinFolder() {
+function findNewestDropstackFolder() {
     let binFolders = [];
     fs.readdirSync('.').forEach(file => {
-        if (fs.statSync(file).isDirectory() && file.match(/^bin\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
+        if (fs.statSync(file).isDirectory() && file.match(/^dropstack\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
             const absolutePath = `${__dirname}/${file}`;
             binFolders.push(absolutePath);
         }
@@ -176,10 +288,25 @@ function findNewestBinFolder() {
     return sorted[sorted.length-1];
 }
 
+
 function timestamp() {
     const pad = (n) => String("00" + n).slice(-2);
     const date = new Date();
-    return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDay())}-${pad(date.getHours())}${pad(date.getMinutes())}${pad(date.getSeconds())}`
+    return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}-${pad(date.getHours())}${pad(date.getMinutes())}${pad(date.getSeconds())}`
+}
+
+function checkIsRunning(containerName) {
+    let containerID = run(`docker ps --filter "name=${containerName}" --format "{{.ID}}"`, {stdio: 'pipe'});
+    if (containerID.length !== 0) {
+        return true;
+    }
+
+    containerID = run(`docker ps --all --filter "name=${containerName}" --format "{{.ID}}"`, {stdio: 'pipe'});
+    if (containerID.length !== 0) {
+        return true;
+    }
+
+    return false
 }
 
 //
@@ -188,10 +315,21 @@ function timestamp() {
 
 module.exports = {
     setup,
-    build,
-    start,
-    stop,
-    deploy,
-    'clean:build': clean_build,
-    'clean:deploy': clean_deploy,
+    install,
+
+    'docker:build': docker_build,
+    'docker:start': docker_start,
+    'docker:stop': docker_stop,
+
+    'sloppy:publish': sloppy_publish,
+    'sloppy:delete': sloppy_delete,
+    'sloppy:deploy': sloppy_deploy,
+
+    'dropstack:build': dropstack_build,
+    'dropstack:deploy': dropstack_deploy,
+
+    'clean:docker': clean_docker,
+    'clean:dropstack': clean_dropstack,
+    'clean:sloppy': clean_sloppy,
+    'clean:install': clean_install,
 };
