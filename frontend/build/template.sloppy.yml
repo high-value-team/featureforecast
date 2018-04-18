@@ -1,0 +1,11 @@
+version: "v1"
+project: "featureforecast-frontend"
+services:
+  a:
+    b:
+      image: hvt1/featureforecast-frontend
+      domain: "featureforecast-frontend.sloppy.zone"
+      ports: 80
+      env:
+        - REACT_APP_BACKEND_URL: "https://featureforecast-backend.sloppy.zone"
+      mem: 64
