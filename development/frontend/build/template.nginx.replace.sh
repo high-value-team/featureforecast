@@ -33,7 +33,7 @@ env | awk -e 'BEGIN { FS="=" }
 
 
 echo "The following ENV will be replaced:"
-cat environment_keys.txt
+# cat environment_keys.txt
 
 # replace "FRONTEND_ENVIRONMENT_VARIABLE_PLACEHOLDER_..." variables
 for file in "$@"
@@ -52,6 +52,8 @@ do
 		key="$line"
 		prefix_key="FRONTEND_ENVIRONMENT_VARIABLE_PLACEHOLDER_$key"
 		value=$(printenv $key)
+
+		echo "${key}=${value}"
 
 		sed -i 's|\"'"$prefix_key"'\"|"'"$value"'\"|g' $file
 		sed -i 's|\"'"$prefix_key"'\\\"|"'"$value"'\\\"|g' $file
