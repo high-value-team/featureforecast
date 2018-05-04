@@ -93,7 +93,7 @@ function docker_prepare () {
     // build frontend with ENV placeholders
     run(`mkdir -p ${binDir}/app`);
     run(`cd ../src && yarn build`, {env: envObj});
-    run(`cp -r ../src/build/ ${binDir}/app`);
+    run(`cp -r ../src/build/* ${binDir}/app`);
 
     // copy files
     run(`cp template.nginx.default.conf ${binDir}/nginx.default.conf`);
