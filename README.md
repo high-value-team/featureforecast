@@ -14,7 +14,7 @@ yarn install
 run // will display available 'run' tasks, e.g run docker:build
 ```
 
-Read more about the build system: [read more ...](development/frontend/build/README.md)
+Read more about the build system: [read more ...](frontend/build/README.md)
 
 Read more about Frontend Testing (Playground-UI): [read more ...](documentation/cosmos.md)
 
@@ -25,5 +25,6 @@ yarn install
 run // will display available 'run' tasks, e.g run docker:build
 ```
 
-[read more about Backend build system](development/backend/build/README.md)
+[read more about Backend build system](backend/build/README.md)
+
 
