@@ -15,6 +15,6 @@ pipeline:
     image: plugins/docker
     repo: hvt1/featureforecast-frontend
     secrets: [ docker_username, docker_password ]
-    dockerfile: /app/src/github.com/high-value-team/featureforecast/frontend/bin/Dockerfile
+    context: /app/src/github.com/high-value-team/featureforecast/frontend/bin
 
 
