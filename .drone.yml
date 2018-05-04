@@ -51,3 +51,4 @@ pipeline:
     docker_image: hvt1/featureforecast-backend
     secrets: [ rancher_access_key, rancher_secret_key ]
     confirm: true
+
