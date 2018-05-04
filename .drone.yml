@@ -5,7 +5,7 @@ workspace:
 pipeline:
 
   backend_build:
-    image: mono
+    image: library/mono
     commands:
       - mkdir /app/src/github.com/high-value-team/featureforecast/backend/bin
       - cp /app/src/github.com/high-value-team/featureforecast/backend/build/template.docker.Dockerfile /app/src/github.com/high-value-team/featureforecast/backend/bin/Dockerfile
