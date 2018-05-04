@@ -7,11 +7,11 @@ pipeline:
   backend_build:
     image: library/mono
     commands:
-      - mkdir /app/src/github.com/high-value-team/featureforecast/backend/bin
+      - mkdir -p /app/src/github.com/high-value-team/featureforecast/backend/bin/app
       - cp /app/src/github.com/high-value-team/featureforecast/backend/build/template.docker.Dockerfile /app/src/github.com/high-value-team/featureforecast/backend/bin/Dockerfile
       - cd /app/src/github.com/high-value-team/featureforecast/backend/src/featureforecast
       - nuget restore
-      - msbuild /p:OutDir=/app/src/github.com/high-value-team/featureforecast/backend/bin featureforecast.sln
+      - msbuild /p:OutDir=/app/src/github.com/high-value-team/featureforecast/backend/bin/app featureforecast.sln
 
   backend_docker:
     debug: true
