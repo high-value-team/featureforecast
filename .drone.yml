@@ -3,6 +3,24 @@ workspace:
   path: src/github.com/high-value-team/featureforecast
 
 pipeline:
+
+  backend_build:
+    image: mono
+    commands:
+      - mkdir /app/src/github.com/high-value-team/featureforecast/backend/bin
+      - cp /app/src/github.com/high-value-team/featureforecast/backend/build/template.docker.Dockerfile /app/src/github.com/high-value-team/featureforecast/backend/bin/Dockerfile
+      - cd /app/src/github.com/high-value-team/featureforecast/backend/src/featureforecast
+      - nuget restore
+      - msbuild /p:OutDir=/app/src/github.com/high-value-team/featureforecast/backend/bin featureforecast.sln
+
+  backend_docker:
+    debug: true
+    image: plugins/docker
+    repo: hvt1/featureforecast-backend
+    secrets: [ docker_username, docker_password ]
+    context: /app/src/github.com/high-value-team/featureforecast/backend/bin
+    dockerfile: /app/src/github.com/high-value-team/featureforecast/backend/bin/Dockerfile
+
   frontend_build:
     image: node
     commands:
@@ -10,12 +28,10 @@ pipeline:
       - yarn install
       - npx run build_for_drone
 
-  docker:
+  frontend_docker:
     debug: true
     image: plugins/docker
     repo: hvt1/featureforecast-frontend
     secrets: [ docker_username, docker_password ]
     context: /app/src/github.com/high-value-team/featureforecast/frontend/bin
     dockerfile: /app/src/github.com/high-value-team/featureforecast/frontend/bin/Dockerfile
-
-
