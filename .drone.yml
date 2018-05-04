@@ -4,7 +4,6 @@ workspace:
 
 pipeline:
   frontend_build:
-    debug: true
     image: node
     commands:
       - cd /src/github.com/high-value-team/featureforecast/frontend/build
@@ -14,7 +13,7 @@ pipeline:
   docker:
     debug: true
     image: plugins/docker
-    repo: hvt1/hello
+    repo: hvt1/featureforecast-frontend
     secrets: [ docker_username, docker_password ]
     dockerfile: /src/github.com/high-value-team/featureforecast/frontend/bin/Dockerfile
 
