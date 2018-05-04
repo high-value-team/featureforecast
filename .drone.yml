@@ -36,3 +36,18 @@ pipeline:
     context: /app/src/github.com/high-value-team/featureforecast/frontend/bin
     dockerfile: /app/src/github.com/high-value-team/featureforecast/frontend/bin/Dockerfile
 
+  frontend_rancher:
+    image: peloton/drone-rancher
+    url: http://18.184.103.82:8080/v1
+    service: featureforecast/frontend
+    docker_image: hvt1/featureforecast-frontend
+    secrets: [ rancher_access_key, rancher_secret_key ]
+    confirm: true
+
+  backend_rancher:
+    image: peloton/drone-rancher
+    url: http://18.184.103.82:8080/v1
+    service: featureforecast/backend
+    docker_image: hvt1/featureforecast-backend
+    secrets: [ rancher_access_key, rancher_secret_key ]
+    confirm: true
