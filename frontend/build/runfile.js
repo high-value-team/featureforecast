@@ -83,8 +83,7 @@ help(local_production, 'Run frontend start scripts using env.production');
 // docker
 //
 
-function docker_build () {
-    const imageName = 'hvt1/featureforecast-frontend';
+function docker_prepare () {
     const envFile = 'env.frontend';
     console.log(`using ${envFile}`);
 
@@ -101,6 +100,19 @@ function docker_build () {
     run(`cp template.nginx.Dockerfile ${binDir}/Dockerfile`);
     run(`cp template.nginx.replace.sh ${binDir}/replace.sh`);
     run(`cp template.nginx.run.sh ${binDir}/run.sh`);
+}
+help(docker_prepare, 'Build project and prepare Dockerfile');
+
+function docker_build () {
+    const imageName = 'hvt1/featureforecast-frontend';
+
+    docker_prepare();
+
+    const binPath = findNewestDockerFolder();
+    if (binPath === undefined) {
+        console.log('No bin-folder found. Please execute a "run docker:prepare" job first!');
+        return
+    }
 
     run(`docker build --tag ${imageName} ${binDir}`);
 }
@@ -256,6 +268,30 @@ function clean_install() {
 help(clean_install, 'Remove installed libraries in "src" folder');
 
 //
+// drone
+//
+
+function build_for_drone() {
+    clean_install();
+    install();
+    setup();
+    docker_prepare();
+    move_latest_docker_prepare_to_bin();
+}
+help(build_for_drone, 'Create bin directory with all artefacts for creating a docker image in the Drone-CI workflow.');
+
+function move_latest_docker_prepare_to_bin() {
+    const binPath = findNewestDockerFolder();
+    if (binPath === undefined) {
+        console.log('No bin-folder found. Please execute a "run docker:prepare" job first!');
+        return
+    }
+
+    run(`rm -rf ../bin`);
+    run(`mv ${binPath} ../bin`);
+}
+
+//
 // helper
 //
 
@@ -293,6 +329,18 @@ function findNewestDropstackFolder() {
     let binFolders = [];
     fs.readdirSync('.').forEach(file => {
         if (fs.statSync(file).isDirectory() && file.match(/^dropstack\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
+            const absolutePath = `${__dirname}/${file}`;
+            binFolders.push(absolutePath);
+        }
+    });
+    let sorted = binFolders.sort();
+    return sorted[sorted.length-1];
+}
+
+function findNewestDockerFolder() {
+    let binFolders = [];
+    fs.readdirSync('.').forEach(file => {
+        if (fs.statSync(file).isDirectory() && file.match(/^docker\.[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6}$/)) {
             const absolutePath = `${__dirname}/${file}`;
             binFolders.push(absolutePath);
         }
@@ -345,6 +393,7 @@ module.exports = {
     'local:development': local_development,
     'local:production': local_production,
 
+    'docker:prepare': docker_prepare,
     'docker:build': docker_build,
     'docker:start': docker_start,
     'docker:stop': docker_stop,
@@ -360,4 +409,6 @@ module.exports = {
     'clean:sloppy': clean_sloppy,
     'clean:dropstack': clean_dropstack,
     'clean:install': clean_install,
+
+    'build_for_drone': build_for_drone,
 };

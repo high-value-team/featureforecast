@@ -1,0 +1,21 @@
+workspace:
+  base: /
+  path: src/github.com/high-value-team/featureforecast
+
+pipeline:
+  frontend_build:
+    debug: true
+    image: node
+    commands:
+      - cd /src/github.com/high-value-team/featureforecast/frontend/build
+      - yarn install
+      - npx run build_for_drone
+
+  docker:
+    debug: true
+    image: plugins/docker
+    repo: hvt1/hello
+    secrets: [ docker_username, docker_password ]
+    dockerfile: /src/github.com/high-value-team/featureforecast/frontend/bin/Dockerfile
+
+
