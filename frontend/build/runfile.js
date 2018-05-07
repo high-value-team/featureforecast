@@ -114,7 +114,7 @@ function docker_build () {
         return
     }
 
-    run(`docker build --tag ${imageName} ${binDir}`);
+    run(`docker build --tag ${imageName} ${binPath}`);
 }
 help(docker_build, 'Build frontend and build docker image');
 

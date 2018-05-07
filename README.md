@@ -5,7 +5,7 @@ Forecast Features based on historic data
 
 Read more about Featureforecast: [Details](documentation/featureforecast.md)
 
-live demo: https://featureforecast-frontend.sloppy.zone
+live demo: https://featureforecast.sloppy.zone
 
 ## frontend
 ```

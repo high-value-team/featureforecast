@@ -4,7 +4,7 @@ services:
   a:
     b:
       image: hvt1/featureforecast-frontend
-      domain: "featureforecast-frontend.sloppy.zone"
+      domain: "featureforecast.sloppy.zone"
       ports: 80
       env:
         - REACT_APP_BACKEND_URL: "https://featureforecast-backend.sloppy.zone"
