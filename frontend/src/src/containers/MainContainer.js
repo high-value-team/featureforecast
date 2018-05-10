@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 import {NODE_ENV, API_ROOT} from "../Config";
 
 import { withStyles } from 'material-ui/styles';
+import { Link } from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
 import * as boxActionCreators from "../Redux";
@@ -59,7 +60,10 @@ class MainContainer extends React.Component {
                 <Navigation title={title}/>
                 <div className={classes.innerContainer}>
                     {this.props.children}
-                    <span style={{color: '#0000008a', fontSize:'10px',}}>{this.formatVersion(this.props.version)} - Brought to you by <a href="http://ccd-school.de" target="_blank" rel="noopener noreferrer">ccd-school.de</a></span>
+                    <div style={{display:'flex', color: '#0000008a', fontSize:'10px',}}>
+                        <p style={{flexGrow: '1'}}>{this.formatVersion(this.props.version)} - Brought to you by <a href="http://high-value-team.de" target="_blank" rel="noopener noreferrer">high-value-team.de</a></p>
+                        <p><Link to="/imprint">imprint and data privacy policy</Link></p>
+                    </div>
                 </div>
             </div>
         );
