@@ -1,0 +1,15 @@
+version: "3.1"
+services:
+  frontend:
+    image: hvt1/featureforecast-frontend
+    ports:
+      - "8080:80"
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8081
+
+  backend:
+    image: hvt1/featureforecast-backend
+    ports:
+      - "8081:80"
+    environment:
+      - FEATUREFORECAST_BACKEND_DATABASEPATH=/mnt

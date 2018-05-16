@@ -7,6 +7,17 @@ Read more about Featureforecast: [Details](documentation/featureforecast.md)
 
 live demo: https://featureforecast.sloppy.zone
 
+## up and running
+
+To quickly just spin up the application, please run the following command:
+
+```
+docker-compose up
+```
+
+then later visit http://localhost:8080
+
+
 ## frontend
 ```
 cd frontend/build
