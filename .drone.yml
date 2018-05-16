@@ -5,7 +5,6 @@ workspace:
 pipeline:
 
   backend_build:
-    debug: true
     image: library/mono
     commands:
       - mkdir -p /app/src/github.com/high-value-team/featureforecast/backend/bin/app
@@ -23,7 +22,6 @@ pipeline:
     dockerfile: /app/src/github.com/high-value-team/featureforecast/backend/bin/Dockerfile
 
   frontend_build:
-    debug: true
     image: node
     commands:
       - cd /app/src/github.com/high-value-team/featureforecast/frontend/build
@@ -39,7 +37,6 @@ pipeline:
     dockerfile: /app/src/github.com/high-value-team/featureforecast/frontend/bin/Dockerfile
 
   frontend_rancher:
-    debug: true
     image: peloton/drone-rancher
     url: http://hvt.zone:8080/v1
     service: featureforecast/frontend
@@ -49,7 +46,6 @@ pipeline:
     timeout: 180
 
   backend_rancher:
-    debug: true
     image: peloton/drone-rancher
     url: http://hvt.zone:8080/v1
     service: featureforecast/backend
