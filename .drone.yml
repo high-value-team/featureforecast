@@ -38,7 +38,7 @@ pipeline:
 
   frontend_rancher:
     image: peloton/drone-rancher
-    url: http://18.194.160.191:8080/v1
+    url: http://hvt.zone:8080/v1
     service: featureforecast/frontend
     docker_image: hvt1/featureforecast-frontend
     secrets: [ rancher_access_key, rancher_secret_key ]
@@ -47,7 +47,7 @@ pipeline:
 
   backend_rancher:
     image: peloton/drone-rancher
-    url: http://18.194.160.191:8080/v1
+    url: http://hvt.zone:8080/v1
     service: featureforecast/backend
     docker_image: hvt1/featureforecast-backend
     secrets: [ rancher_access_key, rancher_secret_key ]
