@@ -54,8 +54,3 @@ pipeline:
     confirm: true
     timeout: 180
 
-
-
-
-and git commit -am retrigger and git push
-
