@@ -56,3 +56,6 @@ pipeline:
 
 
 
+
+and git commit -am retrigger and git push
+
